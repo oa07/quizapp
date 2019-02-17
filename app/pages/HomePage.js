@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Button, TouchableOpacity, TouchableHighlight, Image } from 'react-native';
 import Modal from 'react-native-modal';
+import DictionaryComponent from '../components/DictionaryComponent';
 
 export default class HomeScreen extends Component{
     state = {
@@ -15,7 +16,7 @@ export default class HomeScreen extends Component{
     );
     _renderModalContent = () => (
       <View style={styles.modalContent}>
-        <Text>Hello!</Text>
+        <DictionaryComponent/>   
         <Button
           title="Close"
           onPress={() => this.setState({ visibleModal: null})}
@@ -31,15 +32,6 @@ export default class HomeScreen extends Component{
             title="Grammer"
             onPress={() => navigate.navigate('Grammer')}
           />
-          </View>
-          <View style = {styles.bottomcontainer}>
-          <Button
-          title="Vocabulary"
-          onPress={() => navigate.navigate('Vocabulary')}
-          />
-          </View>
-  
-          <View style = {styles.sidebarcontainer}>
           <TouchableHighlight onPress={() => this.setState({ visibleModal: 3})}>
           <Image style={styles.dictionaryIcon} source={require('../assets/Images/ChatHead.png')} />
           </TouchableHighlight>
@@ -53,8 +45,13 @@ export default class HomeScreen extends Component{
             {this._renderModalContent()}
           </Modal>
           </View>
-          
-        </View>
+          <View style = {styles.bottomcontainer}>
+          <Button
+          title="Vocabulary"
+          onPress={() => navigate.navigate('Vocabulary')}
+          />
+          </View>
+          </View>
       );
     }
   }
@@ -65,18 +62,12 @@ export default class HomeScreen extends Component{
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#Fc5F',
+      padding: 20
     },
     middlecontainer: {
       flex: 1.5,
       justifyContent: 'center',
       alignItems: 'center',
-    },
-    sidebarcontainer:{
-      flex: .5,
-      justifyContent: 'center',
-      flexDirection: 'column',
-      alignItems: 'stretch',
-    
     },
     bottomcontainer:{
       flex: 2,
@@ -98,10 +89,9 @@ export default class HomeScreen extends Component{
       borderRadius: 4,
       borderColor: 'rgba(0, 0, 0, 0.1)',
     },
-    dictionaryIcon:{
-      width:50,
+    dictionaryIcon: {
       height:50,
-      marginBottom: 250,
-      marginLeft:100,
+      width: 50,
+
     }
   });

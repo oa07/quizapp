@@ -1,15 +1,71 @@
-{
-    "Sheet1": [
-        {
-            "Questions": "Select the antonym of the word \"easy \".",
-            "Options": {
-                "dark" : "dark",
-                "deep" : "deep",
-                "dead" : "dead",
-                "difficult" : "difficult"
-            },
-            "Correct Answer": "difficult"
+{"grammer" : {
+    "quiz1" : {
+      "question1" : {
+        "question" : "Select the antonym of the word \"easy \".",
+        "correctoption" : "option4",
+        "options" : {
+            "option1": "dark",
+            "option2": "dead",
+            "option3": "deep",
+            "option4": "difficult"
         }
-        
-    ]
-}
+ 
+      },
+      "question2" : {
+        "correctoption" : "option4",
+        "options" : {
+            "option1" : "XML",
+            "option2" : "YML",
+            "option3" : "HTML",
+            "option4" : "JSX"
+          },
+        "question" : "____ tag syntax is used in React"
+      },
+      "question3" : {
+        "correctoption" : "option1",
+        "options" : {
+            "option1" : "Single root DOM node",
+            "option2" : "Double root DOM node",
+            "option3" : "Multiple root DOM node",
+            "option4" : "None of the above"
+          },
+        "question" : "Application built with just React usually have ____"
+      }
+      
+    },
+    "quiz2" : {
+      "question1" : {
+        "question" : "Select the antonym of the word \"easy \".",
+        "correctoption" : "option4",
+        "options" : {
+            "option1": "dark",
+            "option2": "dead",
+            "option3": "deep",
+            "option4": "difficult"
+        }
+ 
+      },
+      "question2" : {
+        "correctoption" : "option4",
+        "options" : {
+            "option1" : "XML",
+            "option2" : "YML",
+            "option3" : "HTML",
+            "option4" : "JSX"
+          },
+        "question" : "____ tag syntax is used in React"
+      },
+      "question3" : {
+        "correctoption" : "option1",
+        "options" : {
+            "option1" : "Single root DOM node",
+            "option2" : "Double root DOM node",
+            "option3" : "Multiple root DOM node",
+            "option4" : "None of the above"
+          },
+        "question" : "Application built with just React usually have ____"
+      }
+      
+    }
+  }
+  }

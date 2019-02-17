@@ -1,8 +1,19 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import {grammer} from "./data.json";
+let grammerQuizArray = [];
 
 export default class GrammerScreen extends Component{
-    render(){
+  constructor(props){
+    super(props);
+    const grammerData = grammer;
+    // fetching quizid of grammer object
+    grammerQuizArray = Object.keys(grammerData).map(function(id){
+      return grammerData[id];
+    });
+    // 
+  }  
+  render(){
     const navigate  = this.props.navigation;
       return(
         <View style = {styles.container}>
@@ -14,7 +25,7 @@ export default class GrammerScreen extends Component{
         </View>
         <View style = {styles.middlecontainer}>
           <Button style = {styles.quizButton}
-            title="quiz 3"
+            title="quiz 2"
             //onPress={() => navigate.navigate('Grammer')}
           />
         </View>
