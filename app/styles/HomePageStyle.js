@@ -41,13 +41,7 @@ module.exports =   StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
     },
-    quizButton: {      
-      justifyContent: 'space-between',
-      alignContent: 'flex-start',
-      flexDirection: 'column',
-      backgroundColor: '#F5FCFF',
-    },
-    modalContent: {
+     modalContent: {
       backgroundColor: 'white',
       padding: 22,
       justifyContent: 'center',
