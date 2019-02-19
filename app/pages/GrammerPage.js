@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, TouchableHighlight, Button, TouchableOpacity } from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableHighlight, Button, TouchableOpacity } from 'react-native';
 import {grammer} from "./data.json";
 import styles from '../styles/GrammerStyle' ;
 
 let grammerQuizArray = [];
 
 export default class GrammerScreen extends Component{
+
+  static navigationOptions = {
+    title: 'Grammer',
+  };
   constructor(props){
     super(props);
     const grammerData = grammer;

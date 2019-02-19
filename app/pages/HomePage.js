@@ -1,10 +1,23 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Button, TouchableOpacity, TouchableHighlight, Image } from 'react-native';
+import { Text, View, Button, TouchableOpacity, TouchableHighlight, Image } from 'react-native';
 import Modal from 'react-native-modal';
 import DictionaryComponent from '../components/DictionaryComponent';
 import styles from '../styles/HomePageStyle' ;
 
 export default class HomeScreen extends Component{
+
+  static navigationOptions = {
+    title: 'Quiz App',
+    drawerLabel: 'Home',
+    drawerIcon: ({ tintColor }) => (
+      <Image
+        source={require('../assets/Images/ChatHead.png')}   
+        style={[styles.icon, {tintColor: tintColor}]}     
+      />
+    ),
+  };
+  
+
     state = {
       visibleModal: null,
     };
@@ -24,6 +37,7 @@ export default class HomeScreen extends Component{
           />
       </View>
     );
+     
     render(){
       const navigate  = this.props.navigation;
       return(
