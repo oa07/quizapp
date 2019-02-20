@@ -4,7 +4,12 @@ import Modal from 'react-native-modal';
 import DictionaryComponent from '../components/DictionaryComponent';
 
 export default class HomeScreen extends Component{
-    state = {
+  static navigationOptions = {
+    title: 'QuizApp',
+    /* Don't add any config here. For customize use upper stack*/
+  };
+  
+  state = {
       visibleModal: null,
     };
     _renderButton = (text, onPress) => (
