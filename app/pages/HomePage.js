@@ -5,20 +5,12 @@ import DictionaryComponent from '../components/DictionaryComponent';
 import styles from '../styles/HomePageStyle' ;
 
 export default class HomeScreen extends Component{
-
   static navigationOptions = {
-    title: 'Quiz App',
-    drawerLabel: 'Home',
-    drawerIcon: ({ tintColor }) => (
-      <Image
-        source={require('../assets/Images/ChatHead.png')}   
-        style={[styles.icon, {tintColor: tintColor}]}     
-      />
-    ),
+    title: 'QuizApp',
+    /* Don't add any config here. For customize use upper stack*/
   };
   
-
-    state = {
+  state = {
       visibleModal: null,
     };
     _renderButton = (text, onPress) => (
