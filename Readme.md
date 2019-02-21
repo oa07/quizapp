@@ -32,6 +32,7 @@ if `react-native` is missing in your terminal install it globally.
 ### Coding Style
 
 **app** contains all the src file
+
 **app\pages** contains all business logic
 
 ## Deployment
