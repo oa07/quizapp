@@ -5,12 +5,13 @@ import DictionaryComponent from '../components/DictionaryComponent';
 import styles from '../styles/HomePageStyle' ;
 
 export default class HomeScreen extends Component{
+
   static navigationOptions = {
-    title: 'QuizApp',
-    /* Don't add any config here. For customize use upper stack*/
+    title: 'Quiz App',
   };
   
-  state = {
+
+    state = {
       visibleModal: null,
     };
     _renderButton = (text, onPress) => (
@@ -33,7 +34,9 @@ export default class HomeScreen extends Component{
     render(){
       const navigate  = this.props.navigation;
       return(
+     
         <View style = {styles.container}>
+        
           <View style = {styles.middlecontainer}>
   
             <TouchableHighlight onPress={() => this.setState({ visibleModal: 3})}>
@@ -62,6 +65,8 @@ export default class HomeScreen extends Component{
             
             </View>
           </View>
+      
+      
       );
     }
   }
