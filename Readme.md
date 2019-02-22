@@ -21,6 +21,9 @@ if `react-native` is missing in your terminal install it globally.
 
 `yarn global add react-native-cli`
 
+might come across a common problem `Could not install the app on the device, read the error above for details.`
+
+`adb reverse tcp:8081 tcp:8081`
 
 ## Running the tests
 
