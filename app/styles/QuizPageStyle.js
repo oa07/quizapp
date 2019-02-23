@@ -9,14 +9,54 @@ var {
 
 
 module.exports =   StyleSheet.create({
-      welcome: {
+
+      questionText: {
         fontSize: 20,
         margin: 15,
-        color: "white"
+        fontWeight: 'bold',
+        color: "white",
+        justifyContent: 'center',
+        alignItems: 'center',
+
       },
-      instructions: {
-        textAlign: "center",
-        color: "#333333",
-        marginBottom: 5
-      }
+      bottomNavigation:{
+        width: "100%",
+        position: 'absolute',
+        bottom:0,
+        left:0,
+        padding:0,
+        margin:0,
+        flexDirection: 'row',
+        alignSelf: 'flex-start'
+      },
+      nextButton :{
+        width: "50%",
+        backgroundColor: "#689F38",
+        padding:20,
+
+      },
+       prevButton :{
+        width: "50%",
+        backgroundColor: "#DCEDC8",
+        padding:20,
+      },
+      questionBlock: {
+        width: '100%',
+        minHeight: '20%',
+        margin: 20,
+        marginEnd: 20,
+        borderRadius: 5,
+        backgroundColor: "#FF5722",
+        justifyContent: 'center',
+      },
+      buttonTextStyle:{
+        fontSize: 25,
+        textAlign: 'center', // <-- the magic
+      },
+      answerButton:{
+        fontSize: 25,
+        backgroundColor: "#8BC34A",
+        textAlign: 'center', // <-- the magic
+      },
+
   });

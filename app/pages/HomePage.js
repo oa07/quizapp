@@ -7,10 +7,10 @@ import commonStyles from '../styles/CommonStyle' ;
 
 export default class HomeScreen extends Component{
 
-  static navigationOptions = {
-    title: 'Quiz App',
-  };
-  
+//  static navigationOptions = {
+//    title: 'Quiz App',
+//  };
+//
 
     state = {
       visibleModal: null,

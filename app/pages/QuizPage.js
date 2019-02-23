@@ -8,7 +8,7 @@ import {
   Dimensions,
   ImageBackground,
   ScrollView,
-  TouchableOpacity
+  TouchableHighlight
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import Animbutton from "./animbutton";
@@ -80,8 +80,9 @@ export default class QuizScreen extends Component {
     const currentOptions = this.state.options;
     const options = Object.keys(currentOptions).map(function(k) {
       return (
-        <View key={k} style={{ margin: 10 }}>
+        <View key={k} >
           <Animbutton
+            style={quizPageStyles.answerButton}
             countCheck={_this.state.countCheck}
             onColor={"green"}
             effect={"tada"}
@@ -93,58 +94,27 @@ export default class QuizScreen extends Component {
     });
 
     return (
-                <ImageBackground source={require('../assets/Images/Background.jpg')} style={commonStyles.backgroundImage}>
+<ImageBackground source={require('../assets/Images/Background.jpg')} style={commonStyles.backgroundImage}>
 
-      <ScrollView >
-        <View style={commonStyles.container}>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: "column",
-              justifyContent: "space-between",
-              alignItems: "center"
-            }}
-          >
-            <View style={styles.oval}>
-              <Text style={quizPageStyles.welcome}>{this.state.question}</Text>
-            </View>
-            <View>{options}</View>
-            <View style={{ flexDirection: "row" }}>
-                <Button
-            onPress={() => this.prev()}
-            title="Prev"
-            color="#841584"
-          />
-          <View style={{margin:15}} />
-
-              <TouchableOpacity onPress={() => this.next()}>
-                <View
-                  style={{
-                    paddingTop: 5,
-                    paddingBottom: 5,
-                    paddingRight: 20,
-                    paddingLeft: 20,
-                    borderRadius: 10,
-                    backgroundColor: "green"
-                  }}
-                >
-                  <Icon name="md-arrow-round-forward" size={30} color="white" />
-                </View>
-              </TouchableOpacity>
-            </View>
-          </View>
+    <View style={commonStyles.container}>
+        <View style={quizPageStyles.questionBlock}>
+            <Text style={quizPageStyles.questionText}>{this.state.question}</Text>
         </View>
-      </ScrollView>
-                  </ImageBackground>
+        <View>{options}</View>
+    </View>
+
+    <View style={quizPageStyles.bottomNavigation}>
+        <TouchableHighlight  onPress={() => this.prev()} style={quizPageStyles.prevButton}>
+            <Text style={quizPageStyles.buttonTextStyle}>Prev</Text>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={() => this.next()} style={quizPageStyles.nextButton}>
+            <Text style={quizPageStyles.buttonTextStyle}>Next</Text>
+        </TouchableHighlight>
+    </View>
+</ImageBackground>
+
 
     );
   }
 }
 
-const styles = StyleSheet.create({
-  oval: {
-    width: (width * 90) / 100,
-    borderRadius: 20,
-    backgroundColor: "green"
-  },
-});

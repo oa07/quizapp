@@ -7,6 +7,8 @@ import HomeScreen from './pages/HomePage';
 import GrammerScreen from './pages/GrammerPage';
 import VocabularyScreen from './pages/VocabularyPage';
 import QuizScreen from './pages/QuizPage';
+import AboutScreen from './pages/AboutPage';
+import SupportScreen from './pages/SupportPage';
 import { DrawerItems, DrawerNavigation } from 'react-navigation'
 
 // import PlayQuizScreen from './pages/PlayQuizPage';
@@ -18,7 +20,7 @@ const DrawerContent = (props) => (
   <View>
     <View
       style={{
-        backgroundColor: '#f50057',
+        backgroundColor: '#FF5722',
         height: 140,
         alignItems: 'center',
         justifyContent: 'center',
@@ -59,9 +61,9 @@ const DrawerNavigator = createDrawerNavigator(
     /* The header config from HomeScreen is now here */
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: '#f4511e',
+        backgroundColor: '#FF5722',
       },
-      headerTintColor: '#fff',
+      headerTintColor: '#FF5722',
       
       headerTitleStyle: {
         fontWeight: 'bold',
@@ -73,9 +75,6 @@ const DrawerNavigator = createDrawerNavigator(
 const RootStack = createStackNavigator({
   drawer: {
     screen: DrawerNavigator,
-  },
-  cart: {
-    screen: HomeScreen
   }
 }, {
   headerMode: 'float', // set this header mode to float so you can share the header

@@ -10,7 +10,7 @@ module.exports =   StyleSheet.create({
    fullWidthButton: {
       borderRadius: 5,
       width: "100%", 
-      backgroundColor: "#4CAF50",
+      backgroundColor: "#689F38",
       paddingTop: 20,
       paddingBottom: 20,
       paddingRight:10,

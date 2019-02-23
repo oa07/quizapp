@@ -20,7 +20,7 @@ module.exports =   StyleSheet.create({
     quizButton: {
       borderRadius: 5,
       width: "100%", 
-      backgroundColor: "#4CAF50",
+      backgroundColor: "#689F38",
       paddingTop: 10,
       paddingBottom: 10,
       paddingRight:5,

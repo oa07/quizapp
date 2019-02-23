@@ -8,9 +8,9 @@ let grammerQuizArray = [];
 
 export default class GrammerScreen extends Component{
 
-  static navigationOptions = {
-    title: 'Grammer',
-  };
+//  static navigationOptions = {
+//    title: 'Grammer',
+//  };
   constructor(props){
     super(props);
     const grammerData = grammer;
