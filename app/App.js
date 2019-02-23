@@ -48,9 +48,9 @@ HomeStack.navigationOptions = ({ navigation }) => {
 const DrawerNavigator = createDrawerNavigator(
   {
     Home: { screen: HomeScreen },
-    Grammer: { screen: GrammerScreen},
-    Vocabulary: { screen : VocabularyScreen},
-    Quiz : { screen : QuizScreen},
+    Support: { screen: SupportScreen },
+    About: { screen: AboutScreen },
+
     // PlayQuiz : { screen : PlayQuizScreen},
   },
   {
@@ -73,9 +73,12 @@ const DrawerNavigator = createDrawerNavigator(
 );
 
 const RootStack = createStackNavigator({
-  drawer: {
-    screen: DrawerNavigator,
-  }
+  drawer: { screen: DrawerNavigator,  },
+  Quiz : { screen : QuizScreen},
+  Home: { screen: HomeScreen },
+  Grammer: { screen: GrammerScreen},
+  Vocabulary: { screen : VocabularyScreen},
+
 }, {
   headerMode: 'float', // set this header mode to float so you can share the header
   initialRouteName: 'drawer',

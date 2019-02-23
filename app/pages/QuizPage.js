@@ -80,9 +80,10 @@ export default class QuizScreen extends Component {
     const currentOptions = this.state.options;
     const options = Object.keys(currentOptions).map(function(k) {
       return (
-        <View key={k} >
+        <View key={k}
+>
           <Animbutton
-            style={quizPageStyles.answerButton}
+            style={{ width:'100%', backgroundColor: 'blue'}}
             countCheck={_this.state.countCheck}
             onColor={"green"}
             effect={"tada"}
@@ -100,7 +101,7 @@ export default class QuizScreen extends Component {
         <View style={quizPageStyles.questionBlock}>
             <Text style={quizPageStyles.questionText}>{this.state.question}</Text>
         </View>
-        <View>{options}</View>
+        <View >{options}</View>
     </View>
 
     <View style={quizPageStyles.bottomNavigation}>

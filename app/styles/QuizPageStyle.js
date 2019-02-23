@@ -24,21 +24,25 @@ module.exports =   StyleSheet.create({
         position: 'absolute',
         bottom:0,
         left:0,
-        padding:0,
-        margin:0,
         flexDirection: 'row',
         alignSelf: 'flex-start'
       },
       nextButton :{
         width: "50%",
         backgroundColor: "#689F38",
-        padding:20,
+        paddingTop:10,
+        paddingBottom:10,
+        paddingLeft:15,
+        paddingRight:15,
 
       },
        prevButton :{
         width: "50%",
         backgroundColor: "#DCEDC8",
-        padding:20,
+        paddingTop:10,
+        paddingBottom:10,
+        paddingLeft:15,
+        paddingRight:15,
       },
       questionBlock: {
         width: '100%',
