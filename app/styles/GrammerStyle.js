@@ -7,12 +7,7 @@ var {
 } = React;
 
 module.exports =   StyleSheet.create({
-    container: {
-      flex: 1, 
-      backgroundColor: 'white',
-      padding: 20
-    },
-    middlecontainer: {
+   middlecontainer: {
       flex: 1.5,
       justifyContent: 'center',
       alignItems: 'center',
@@ -38,6 +33,10 @@ module.exports =   StyleSheet.create({
       fontSize:20,
       color: 'white'
     },
+     backgroundImage: {
+            flex: 1,
+            resizeMode: 'cover', // or 'stretch'
+    },
     modalContent: {
       backgroundColor: 'white',
       padding: 22,
@@ -45,5 +44,6 @@ module.exports =   StyleSheet.create({
       alignItems: 'center',
       borderRadius: 4,
       borderColor: 'rgba(0, 0, 0, 0.1)',
-    }
+    },
+
   });

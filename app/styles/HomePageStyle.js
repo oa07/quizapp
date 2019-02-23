@@ -7,12 +7,7 @@ var {
 } = React;
 
 module.exports =   StyleSheet.create({
-    container: {
-      flex: 1, 
-      backgroundColor: 'white',
-      padding: 20
-    },
-    fullWidthButton: {
+   fullWidthButton: {
       borderRadius: 5,
       width: "100%", 
       backgroundColor: "#4CAF50",

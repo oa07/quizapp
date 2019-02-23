@@ -6,12 +6,16 @@ import {
   View,
   Button,
   Dimensions,
+  ImageBackground,
   ScrollView,
   TouchableOpacity
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import Animbutton from "./animbutton";
 import { grammer } from "./data.json";
+import commonStyles from '../styles/CommonStyle' ;
+import quizPageStyles from '../styles/QuizPageStyle' ;
+
 const { width, height } = Dimensions.get("window");
 let arrnew = [];
 
@@ -89,8 +93,10 @@ export default class QuizScreen extends Component {
     });
 
     return (
-      <ScrollView style={{ backgroundColor: "#F5FCFF", paddingTop: 10 }}>
-        <View style={styles.container}>
+                <ImageBackground source={require('../assets/Images/Background.jpg')} style={commonStyles.backgroundImage}>
+
+      <ScrollView >
+        <View style={commonStyles.container}>
           <View
             style={{
               flex: 1,
@@ -100,7 +106,7 @@ export default class QuizScreen extends Component {
             }}
           >
             <View style={styles.oval}>
-              <Text style={styles.welcome}>{this.state.question}</Text>
+              <Text style={quizPageStyles.welcome}>{this.state.question}</Text>
             </View>
             <View>{options}</View>
             <View style={{ flexDirection: "row" }}>
@@ -129,6 +135,8 @@ export default class QuizScreen extends Component {
           </View>
         </View>
       </ScrollView>
+                  </ImageBackground>
+
     );
   }
 }
@@ -139,18 +147,4 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: "green"
   },
-  container: {
-    flex: 1,
-    alignItems: "center"
-  },
-  welcome: {
-    fontSize: 20,
-    margin: 15,
-    color: "white"
-  },
-  instructions: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5
-  }
 });

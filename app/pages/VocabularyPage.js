@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import {StyleSheet, Text, View, Button,ImageBackground, TouchableOpacity } from 'react-native';
 
 export default class VocabularyScreen extends Component{
     render(){
       return(
         <View style = {styles.container}>
-        <Text> I am vocabulary</Text>
+            <Text> I am vocabulary</Text>
         </View>
   
       );
