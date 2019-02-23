@@ -4,13 +4,14 @@ import Modal from 'react-native-modal';
 import DictionaryComponent from '../components/DictionaryComponent';
 import styles from '../styles/HomePageStyle' ;
 import commonStyles from '../styles/CommonStyle' ;
+import Icon from "react-native-vector-icons/Ionicons";
 
 export default class HomeScreen extends Component{
 
 //  static navigationOptions = {
 //    title: 'Quiz App',
 //  };
-//
+
 
     state = {
       visibleModal: null,
@@ -24,11 +25,15 @@ export default class HomeScreen extends Component{
     );
     _renderModalContent = () => (
       <View style={styles.modalContent}>
-        <DictionaryComponent/>   
-        <Button
-          title="Close"
-          onPress={() => this.setState({ visibleModal: null})}
-          />
+
+            <Icon name="ios-close"  onPress={() => this.setState({ visibleModal: null})} style={{  fontSize: 40,
+                                                                                 color: 'red',
+                                                                                 position:  'absolute',
+                                                                                 right:0,
+                                                                                 marginEnd:5,
+                                                                                 top:0, }}  />
+       <DictionaryComponent/>
+
       </View>
     );
      

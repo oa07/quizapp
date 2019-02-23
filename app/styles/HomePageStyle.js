@@ -37,8 +37,7 @@ module.exports =   StyleSheet.create({
       alignItems: 'center',
     },
      modalContent: {
-      backgroundColor: 'white',
-      padding: 22,
+      backgroundColor: '#757575',
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 4,
@@ -47,6 +46,14 @@ module.exports =   StyleSheet.create({
     dictionaryIcon: {
       height:70,
       width: 70,
+
+    },
+    modalCrossBtn:{
+ fontSize: 40,
+                                              color: 'red',
+                                              position:  'relative',
+                                              right:0,
+                                              top:0,
 
     }
   });
