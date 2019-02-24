@@ -32,18 +32,8 @@ const DrawerContent = (props) => (
     </View>
     <DrawerItems {...props} />
   </View>
-)
+);
 
-const HomeStack = createStackNavigator({
-  HomeScreen: { screen: HomeScreen },  
-});
-
-HomeStack.navigationOptions = ({ navigation }) => {
-  return {
-     title: 'Home',
-     headerTitle: 'Home'
-  };
-};
 
 const DrawerNavigator = createDrawerNavigator(
   {
@@ -54,34 +44,41 @@ const DrawerNavigator = createDrawerNavigator(
     // PlayQuiz : { screen : PlayQuizScreen},
   },
   {
-    initialRouteName: 'Home',
-    drawerType :'slide',
-    drawerPosition :'left',
-    contentComponent :DrawerContent,
-    /* The header config from HomeScreen is now here */
-    defaultNavigationOptions: {
-      headerStyle: {
-        backgroundColor: '#FF5722',
-      },
-      headerTintColor: '#FF5722',
-      
-      headerTitleStyle: {
-        fontWeight: 'bold',
-      },
-    },
+       contentComponent :DrawerContent,
+
   }
 );
 
 const RootStack = createStackNavigator({
-  drawer: { screen: DrawerNavigator,  },
-  Quiz : { screen : QuizScreen},
-  Home: { screen: HomeScreen },
-  Grammer: { screen: GrammerScreen},
-  Vocabulary: { screen : VocabularyScreen},
+    Drawer: { screen: DrawerNavigator,  },
+    Grammer: {
+        screen: GrammerScreen,
+        navigationOptions: {
+            headerTitle: "Grammer"
+        }
+    },
+    Vocabulary: {
+        screen: VocabularyScreen,
+        navigationOptions: {
+            headerTitle: "Vocabulary"
+        }
+    },
+   Quiz: {
+        screen: QuizScreen,
+        navigationOptions: {
+            headerTitle: "Quiz"
+        }
+    },
 
 }, {
-  headerMode: 'float', // set this header mode to float so you can share the header
-  initialRouteName: 'drawer',
+  initialRouteName: 'Drawer',
+  navigationOptions: {
+        headerTitleStyle: {
+          fontWeight: "bold",
+          color: "blue",
+        },
+        headerTintColor: "red"
+      }
 });
 
 const AppContainer = createAppContainer(RootStack);
