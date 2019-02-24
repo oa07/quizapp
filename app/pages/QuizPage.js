@@ -20,10 +20,24 @@ const { width, height } = Dimensions.get("window");
 let arrnew = [];
 
 export default class QuizScreen extends Component {
+
+static navigationOptions = ({navigation}) => ({
+    title: navigation.getParam('title', 'Quiz'),
+    /* ... */
+});
+
+ updateNavigationTitle = (tab) => {
+    /* title dynamically changes here */
+    this.props.navigation.setParams({
+            title:  'Quiz ' + (this.questionNo+1)
+        });
+};
+
   constructor(props) {
     super(props);
     this.questionNo = 0;
     this.score = 0;
+    this.updateNavigationTitle( this.questionNo);
 
     const jsondata = grammer.quiz1;
     arrnew = Object.keys(jsondata).map(function(k) {
@@ -39,6 +53,7 @@ export default class QuizScreen extends Component {
   prev() {
     if (this.questionNo > 0) {
       this.questionNo--;
+      this.updateNavigationTitle( this.questionNo);
       this.setState({
         question: arrnew[this.questionNo].question,
         options: arrnew[this.questionNo].options,
@@ -49,7 +64,7 @@ export default class QuizScreen extends Component {
   next() {
     if (this.questionNo < arrnew.length - 1) {
       this.questionNo++;
-
+    this.updateNavigationTitle( this.questionNo);
       this.setState({
         countCheck: 0,
         question: arrnew[this.questionNo].question,

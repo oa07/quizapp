@@ -49,11 +49,12 @@ module.exports =   StyleSheet.create({
 
     },
     modalCrossBtn:{
- fontSize: 40,
-                                              color: 'red',
-                                              position:  'relative',
-                                              right:0,
-                                              top:0,
+     fontSize: 40,
+     color: 'red',
+     position:  'absolute',
+     right:0,
+     marginEnd:5,
+     top:0,
 
     }
   });

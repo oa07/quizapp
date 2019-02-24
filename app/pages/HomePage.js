@@ -13,6 +13,7 @@ export default class HomeScreen extends Component{
 //  };
 
 
+
     state = {
       visibleModal: null,
     };
@@ -25,52 +26,55 @@ export default class HomeScreen extends Component{
     );
     _renderModalContent = () => (
       <View style={styles.modalContent}>
-
-            <Icon name="ios-close"  onPress={() => this.setState({ visibleModal: null})} style={{  fontSize: 40,
-                                                                                 color: 'red',
-                                                                                 position:  'absolute',
-                                                                                 right:0,
-                                                                                 marginEnd:5,
-                                                                                 top:0, }}  />
+            <Icon name="ios-close"
+                onPress={() => this.setState({ visibleModal: null})}
+                style={ styles.modalCrossBtn }
+            />
        <DictionaryComponent/>
 
       </View>
     );
-     
+
     render(){
       const navigate  = this.props.navigation;
       return(
             <ImageBackground source={require('../assets/Images/Background.jpg')} style={commonStyles.backgroundImage}>
 
                 <View style = {commonStyles.container}>
-                              <View style = {styles.middlecontainer}>
+                      <View style = {styles.middlecontainer}>
 
-                                <TouchableHighlight onPress={() => this.setState({ visibleModal: 3})}>
-                                  <Image style={styles.dictionaryIcon} source={require('../assets/Images/ChatHead.png')} />
-                                </TouchableHighlight>
-                                <Modal
-                                  isVisible={this.state.visibleModal === 3}
-                                  animationInTiming={2000}
-                                  animationOutTiming={2000}
-                                  backdropTransitionInTiming={2000}
-                                  backdropTransitionOutTiming={2000}
-                                >
-                                  {this._renderModalContent()}
-                                </Modal>
-                              </View>
+                        <TouchableHighlight  onPress={() => this.setState({ visibleModal: 3})}>
+                          <Image style={styles.dictionaryIcon} source={require('../assets/Images/ChatHead.png')} />
+                        </TouchableHighlight>
+                        <Modal
+                          isVisible={this.state.visibleModal === 3}
+                          animationInTiming={2000}
+                          animationOutTiming={2000}
+                          backdropTransitionInTiming={2000}
+                          backdropTransitionOutTiming={2000}
+                        >
+                          {this._renderModalContent()}
+                        </Modal>
+                      </View>
 
+                        <View style = {styles.home_main_buttons_container}>
 
-                                <View style = {styles.home_main_buttons_container}>
+                          <TouchableHighlight
+                            underlayColor='#689F38'
+                            style={ styles.fullWidthButton }
+                            onPress ={() => navigate.navigate('Grammer')}
+                           >
+                              <Text style={styles.fullWidthButtonText}>Grammer</Text>
+                          </TouchableHighlight>
+                          <TouchableHighlight
+                              underlayColor='#689F38'
+                              style={styles.fullWidthButton}
+                              onPress={() => navigate.navigate('Vocabulary')}
+                          >
+                              <Text style={styles.fullWidthButtonText}>Vocabulary</Text>
+                          </TouchableHighlight>
 
-                                  <TouchableHighlight style={styles.fullWidthButton} onPress={() => navigate.navigate('Grammer')}>
-                                      <Text style={styles.fullWidthButtonText}>Grammer</Text>
-                                  </TouchableHighlight>
-                                  <TouchableHighlight style={styles.fullWidthButton} onPress={() => navigate.navigate('Vocabulary')}>
-                                      <Text style={styles.fullWidthButtonText}>Vocabulary</Text>
-                                  </TouchableHighlight>
-
-                                </View>
-
+                        </View>
 
                 </View>
             </ImageBackground>

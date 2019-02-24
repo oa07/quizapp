@@ -8,9 +8,6 @@ let grammerQuizArray = [];
 
 export default class GrammerScreen extends Component{
 
-//  static navigationOptions = {
-//    title: 'Grammer',
-//  };
   constructor(props){
     super(props);
     const grammerData = grammer;
@@ -22,74 +19,28 @@ export default class GrammerScreen extends Component{
   }  
   render(){
     const navigate  = this.props.navigation;
+    var myloop = [];
+
+    for (let i = 1; i <= 10; i++) {
+      myloop.push(
+        <TouchableHighlight
+            key={i}
+            underlayColor='#689F38'
+            style={styles.quizButton}
+            onPress={() => navigate.navigate('Quiz')}
+        >
+            <Text style={styles.fullWidthButtonText}>QUIZ {i}</Text>
+        </TouchableHighlight>
+      );
+    }
       return(
         <ImageBackground source={require('../assets/Images/Background.jpg')} style={styles.backgroundImage}>
 
             <View style = {commonStyles.container}>
 
-                  <TouchableHighlight
-                  style={styles.quizButton}
-                  onPress={() => navigate.navigate('Quiz')}
-                   >
-                    <Text style={styles.fullWidthButtonText}>QUIZ 1</Text>
-                  </TouchableHighlight>
+                  {myloop}
 
-                  <TouchableHighlight
-                  style={styles.quizButton}
-                  onPress={() => navigate.navigate('Quiz')}
-                   >
-                    <Text style={styles.fullWidthButtonText}>Quiz 2</Text>
-                  </TouchableHighlight>
 
-                  <TouchableHighlight
-                  style={styles.quizButton}
-                  onPress={() => navigate.navigate('Quiz')}
-                   >
-                    <Text style={styles.fullWidthButtonText}>Quiz 3</Text>
-                  </TouchableHighlight>
-
-                  <TouchableHighlight
-                  style={styles.quizButton}
-                  onPress={() => navigate.navigate('Quiz')}
-                   >
-                    <Text style={styles.fullWidthButtonText}>Quiz 4</Text>
-                  </TouchableHighlight>
-                 <TouchableHighlight
-                  style={styles.quizButton}
-                  onPress={() => navigate.navigate('Quiz')}
-                   >
-                    <Text style={styles.fullWidthButtonText}>Quiz 5</Text>
-                  </TouchableHighlight>
-                  <TouchableHighlight
-                  style={styles.quizButton}
-                  onPress={() => navigate.navigate('Quiz')}
-                   >
-                    <Text style={styles.fullWidthButtonText}>Quiz 6</Text>
-                  </TouchableHighlight>
-                  <TouchableHighlight
-                  style={styles.quizButton}
-                  onPress={() => navigate.navigate('Quiz')}
-                   >
-                    <Text style={styles.fullWidthButtonText}>Quiz 7</Text>
-                  </TouchableHighlight>
-                  <TouchableHighlight
-                  style={styles.quizButton}
-                  onPress={() => navigate.navigate('Quiz')}
-                   >
-                    <Text style={styles.fullWidthButtonText}>Quiz 8</Text>
-                  </TouchableHighlight>
-                  <TouchableHighlight
-                  style={styles.quizButton}
-                  onPress={() => navigate.navigate('Quiz')}
-                   >
-                    <Text style={styles.fullWidthButtonText}>Quiz 9</Text>
-                  </TouchableHighlight>
-                  <TouchableHighlight
-                  style={styles.quizButton}
-                  onPress={() => navigate.navigate('Quiz')}
-                   >
-                    <Text style={styles.fullWidthButtonText}>Quiz 10</Text>
-                  </TouchableHighlight>
             </View>
         </ImageBackground>
 

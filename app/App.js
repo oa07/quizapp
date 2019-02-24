@@ -37,7 +37,13 @@ const DrawerContent = (props) => (
 
 const DrawerNavigator = createDrawerNavigator(
   {
-    Home: { screen: HomeScreen },
+    Home: {
+        screen: HomeScreen ,
+        navigationOptions: {
+             drawerLabel: () => null,
+             headerTitle: "Grammer"
+        }
+    },
     Support: { screen: SupportScreen },
     About: { screen: AboutScreen },
 
@@ -65,20 +71,10 @@ const RootStack = createStackNavigator({
     },
    Quiz: {
         screen: QuizScreen,
-        navigationOptions: {
-            headerTitle: "Quiz"
-        }
     },
 
 }, {
   initialRouteName: 'Drawer',
-  navigationOptions: {
-        headerTitleStyle: {
-          fontWeight: "bold",
-          color: "blue",
-        },
-        headerTintColor: "red"
-      }
 });
 
 const AppContainer = createAppContainer(RootStack);
