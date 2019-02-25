@@ -14,6 +14,7 @@ export default class HomeScreen extends Component{
 
 
 
+
     state = {
       visibleModal: null,
     };
@@ -24,59 +25,52 @@ export default class HomeScreen extends Component{
         </View>
       </TouchableOpacity>
     );
-    _renderModalContent = () => (
-      <View style={styles.modalContent}>
-            <Icon name="ios-close"
-                onPress={() => this.setState({ visibleModal: null})}
-                style={ styles.modalCrossBtn }
-            />
-       <DictionaryComponent/>
-
-      </View>
-    );
 
     render(){
       const navigate  = this.props.navigation;
       return(
             <ImageBackground source={require('../assets/Images/Background.jpg')} style={commonStyles.backgroundImage}>
 
-                <View style = {commonStyles.container}>
-                      <View style = {styles.middlecontainer}>
+            <Modal
+                isVisible={this.state.visibleModal === 3}
+                animationInTiming={2000}
+                animationOutTiming={2000}
+                backdropTransitionInTiming={2000}
+                backdropTransitionOutTiming={2000}
+                style={{left:0, padding:0,margin:0}}>
+                <View style={styles.modalContent} >
 
-                        <TouchableHighlight  onPress={() => this.setState({ visibleModal: 3})}>
-                          <Image style={styles.dictionaryIcon} source={require('../assets/Images/ChatHead.png')} />
-                        </TouchableHighlight>
-                        <Modal
-                          isVisible={this.state.visibleModal === 3}
-                          animationInTiming={2000}
-                          animationOutTiming={2000}
-                          backdropTransitionInTiming={2000}
-                          backdropTransitionOutTiming={2000}
-                        >
-                          {this._renderModalContent()}
-                        </Modal>
-                      </View>
-
-                        <View style = {styles.home_main_buttons_container}>
-
-                          <TouchableHighlight
-                            underlayColor='#689F38'
-                            style={ styles.fullWidthButton }
-                            onPress ={() => navigate.navigate('Grammer')}
-                           >
-                              <Text style={styles.fullWidthButtonText}>Grammer</Text>
-                          </TouchableHighlight>
-                          <TouchableHighlight
-                              underlayColor='#689F38'
-                              style={styles.fullWidthButton}
-                              onPress={() => navigate.navigate('Vocabulary')}
-                          >
-                              <Text style={styles.fullWidthButtonText}>Vocabulary</Text>
-                          </TouchableHighlight>
-
-                        </View>
+                   <DictionaryComponent/>
 
                 </View>
+            </Modal>
+             <View style = {styles.middlecontainer}>
+                <TouchableHighlight
+                underlayColor='transparent'
+                onPress={() => this.setState({ visibleModal: 3})}>
+                  <Image style={styles.dictionaryIcon} source={require('../assets/Images/ChatHead.png')} />
+                </TouchableHighlight>
+
+             </View>
+            <View style = {commonStyles.container}>
+                    <View style = {styles.home_main_buttons_container}>
+                      <TouchableHighlight
+                        underlayColor='#689F38'
+                        style={ styles.fullWidthButton }
+                        onPress ={() => navigate.navigate('Grammer')}
+                       >
+                          <Text style={styles.fullWidthButtonText}>Grammer</Text>
+                      </TouchableHighlight>
+                      <TouchableHighlight
+                          underlayColor='#689F38'
+                          style={styles.fullWidthButton}
+                          onPress={() => navigate.navigate('Vocabulary')}
+                      >
+                          <Text style={styles.fullWidthButtonText}>Vocabulary</Text>
+                      </TouchableHighlight>
+
+                    </View>
+            </View>
             </ImageBackground>
 
       

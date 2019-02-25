@@ -57,10 +57,21 @@ module.exports =   StyleSheet.create({
         fontSize: 25,
         textAlign: 'center', // <-- the magic
       },
-      answerButton:{
-        fontSize: 25,
-        backgroundColor: "#8BC34A",
-        textAlign: 'center', // <-- the magic
-      },
+         answerButton: {
+            borderRadius: 5,
+            width: "100%",
+            backgroundColor: "#757575",
+            paddingTop: 10,
+            paddingBottom: 10,
+            paddingRight:5,
+            paddingLeft:5,
+            marginTop : 5,
+            alignItems: 'center'
+
+          },
+          fullWidthButtonText: {
+            fontSize:20,
+            color: 'white'
+          },
 
   });
