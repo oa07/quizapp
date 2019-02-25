@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Image, TouchableHighlight, Button, ImageBackground, TouchableOpacity } from 'react-native';
-import {grammer} from "./data.json";
+import {grammer} from './data.json';
 import styles from '../styles/GrammerStyle' ;
 import commonStyles from '../styles/CommonStyle' ;
 
@@ -27,7 +27,7 @@ export default class GrammerScreen extends Component{
             key={i}
             underlayColor='#689F38'
             style={styles.quizButton}
-            onPress={() => navigate.navigate('Quiz')}
+            onPress={() => navigate.navigate('PlayQuiz')}
         >
             <Text style={styles.fullWidthButtonText}>QUIZ {i}</Text>
         </TouchableHighlight>
