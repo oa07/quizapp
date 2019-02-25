@@ -6,20 +6,38 @@ import {
   View,
   Button,
   Dimensions,
+  ImageBackground,
   ScrollView,
-  TouchableOpacity
+  TouchableHighlight
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import Animbutton from "./animbutton";
 import { grammer } from "./data.json";
+import commonStyles from '../styles/CommonStyle' ;
+import quizPageStyles from '../styles/QuizPageStyle' ;
+
 const { width, height } = Dimensions.get("window");
 let arrnew = [];
 
 export default class QuizScreen extends Component {
+
+static navigationOptions = ({navigation}) => ({
+    title: navigation.getParam('title', 'Quiz'),
+    /* ... */
+});
+
+ updateNavigationTitle = (tab) => {
+    /* title dynamically changes here */
+    this.props.navigation.setParams({
+            title:  'Quiz ' + (this.questionNo+1)
+        });
+};
+
   constructor(props) {
     super(props);
     this.questionNo = 0;
     this.score = 0;
+    this.updateNavigationTitle( this.questionNo);
 
     const jsondata = grammer.quiz1;
     arrnew = Object.keys(jsondata).map(function(k) {
@@ -35,6 +53,7 @@ export default class QuizScreen extends Component {
   prev() {
     if (this.questionNo > 0) {
       this.questionNo--;
+      this.updateNavigationTitle( this.questionNo);
       this.setState({
         question: arrnew[this.questionNo].question,
         options: arrnew[this.questionNo].options,
@@ -45,7 +64,7 @@ export default class QuizScreen extends Component {
   next() {
     if (this.questionNo < arrnew.length - 1) {
       this.questionNo++;
-
+    this.updateNavigationTitle( this.questionNo);
       this.setState({
         countCheck: 0,
         question: arrnew[this.questionNo].question,
@@ -76,8 +95,10 @@ export default class QuizScreen extends Component {
     const currentOptions = this.state.options;
     const options = Object.keys(currentOptions).map(function(k) {
       return (
-        <View key={k} style={{ margin: 10 }}>
+        <View key={k}
+>
           <Animbutton
+            style={{ width:'100%', backgroundColor: 'blue'}}
             countCheck={_this.state.countCheck}
             onColor={"green"}
             effect={"tada"}
@@ -89,68 +110,27 @@ export default class QuizScreen extends Component {
     });
 
     return (
-      <ScrollView style={{ backgroundColor: "#F5FCFF", paddingTop: 10 }}>
-        <View style={styles.container}>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: "column",
-              justifyContent: "space-between",
-              alignItems: "center"
-            }}
-          >
-            <View style={styles.oval}>
-              <Text style={styles.welcome}>{this.state.question}</Text>
-            </View>
-            <View>{options}</View>
-            <View style={{ flexDirection: "row" }}>
-                <Button
-            onPress={() => this.prev()}
-            title="Prev"
-            color="#841584"
-          />
-          <View style={{margin:15}} />
+<ImageBackground source={require('../assets/Images/Background.jpg')} style={commonStyles.backgroundImage}>
 
-              <TouchableOpacity onPress={() => this.next()}>
-                <View
-                  style={{
-                    paddingTop: 5,
-                    paddingBottom: 5,
-                    paddingRight: 20,
-                    paddingLeft: 20,
-                    borderRadius: 10,
-                    backgroundColor: "green"
-                  }}
-                >
-                  <Icon name="md-arrow-round-forward" size={30} color="white" />
-                </View>
-              </TouchableOpacity>
-            </View>
-          </View>
+    <View style={commonStyles.container}>
+        <View style={quizPageStyles.questionBlock}>
+            <Text style={quizPageStyles.questionText}>{this.state.question}</Text>
         </View>
-      </ScrollView>
+        <View >{options}</View>
+    </View>
+
+    <View style={quizPageStyles.bottomNavigation}>
+        <TouchableHighlight  onPress={() => this.prev()} style={quizPageStyles.prevButton}>
+            <Text style={quizPageStyles.buttonTextStyle}>Prev</Text>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={() => this.next()} style={quizPageStyles.nextButton}>
+            <Text style={quizPageStyles.buttonTextStyle}>Next</Text>
+        </TouchableHighlight>
+    </View>
+</ImageBackground>
+
+
     );
   }
 }
 
-const styles = StyleSheet.create({
-  oval: {
-    width: (width * 90) / 100,
-    borderRadius: 20,
-    backgroundColor: "green"
-  },
-  container: {
-    flex: 1,
-    alignItems: "center"
-  },
-  welcome: {
-    fontSize: 20,
-    margin: 15,
-    color: "white"
-  },
-  instructions: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5
-  }
-});
