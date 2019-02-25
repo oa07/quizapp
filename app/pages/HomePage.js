@@ -8,12 +8,6 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 export default class HomeScreen extends Component{
 
-//  static navigationOptions = {
-//    title: 'Quiz App',
-//  };
-
-
-
     state = {
       visibleModal: null,
     };

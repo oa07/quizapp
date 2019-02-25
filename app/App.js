@@ -1,7 +1,7 @@
 'use strict';
 
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import {StyleSheet, Text, View, Button, TouchableHighlight } from 'react-native';
 import {createDrawerNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
 import HomeScreen from './pages/HomePage';
 import GrammerScreen from './pages/GrammerPage';
@@ -9,40 +9,18 @@ import VocabularyScreen from './pages/VocabularyPage';
 import QuizScreen from './pages/QuizPage';
 import AboutScreen from './pages/AboutPage';
 import SupportScreen from './pages/SupportPage';
-import { DrawerItems, DrawerNavigation } from 'react-navigation'
+import { DrawerItems, DrawerNavigation, DrawerActions } from 'react-navigation'
 
 // import PlayQuizScreen from './pages/PlayQuizPage';
 // import PlayQuiz from './pages/PlayQuizPage';
 //import SearchScreen from '';
 // import SearchResultScreen from ''; 
 
-const DrawerContent = (props) => (
-  <View>
-    <View
-      style={{
-        backgroundColor: '#FF5722',
-        height: 140,
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      <Text style={{ color: 'white', fontSize: 30 }}>
-        Header
-      </Text>
-    </View>
-    <DrawerItems {...props} />
-  </View>
-);
-
 
 const DrawerNavigator = createDrawerNavigator(
   {
     Home: {
-        screen: HomeScreen ,
-        navigationOptions: {
-             drawerLabel: () => null,
-             headerTitle: "Grammer"
-        }
+        screen: HomeScreen 
     },
     Support: { screen: SupportScreen },
     About: { screen: AboutScreen },
@@ -50,13 +28,25 @@ const DrawerNavigator = createDrawerNavigator(
     // PlayQuiz : { screen : PlayQuizScreen},
   },
   {
-       contentComponent :DrawerContent,
+       navigationOptions: ({ navigation})=>({
+          headerTitle: "QuizApp",
+          headerLeft : <View>
+            <TouchableHighlight
+              onPress={()=>{
+                navigation.dispatch(DrawerActions.toggleDrawer())
+              }}>
+              <Text>Menu</Text>
+            </TouchableHighlight>
+  
+          </View>
+
+       })
 
   }
 );
 
 const RootStack = createStackNavigator({
-    Drawer: { screen: DrawerNavigator,  },
+    Drawer: { screen: DrawerNavigator},
     Grammer: {
         screen: GrammerScreen,
         navigationOptions: {
