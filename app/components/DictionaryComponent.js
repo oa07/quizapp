@@ -31,12 +31,10 @@ export default class DictionaryComponent extends Component {
     return (
       <View style={{ width: '100%'}}>
 
-      <View style={{flexWrap: 'wrap',
-                            alignItems: 'flex-start',
-                            flexDirection:'row',backgroundColor:'white',paddingTop:10,paddingBottom:10}}>
-
+      <View style={HomePageStyle.modalHeaderContainer }>
                               <Animatable.View animation={this.state.searchBarFocused ? "fadeInLeft" : "fadeInRight"} duration={400} style={HomePageStyle.modalBackBtnContainer}>
-                                 <Icon name={  "ios-arrow-round-back"} style={HomePageStyle.modalBackBtn} />
+                                 <Icon name={  "ios-arrow-round-back"}
+                                 style={HomePageStyle.modalBackBtn} />
                                </Animatable.View>
 
                              <Animatable.View animation="slideInRight" duration={500} style={HomePageStyle.chatheadSearchBlock}>
@@ -52,13 +50,6 @@ export default class DictionaryComponent extends Component {
                                          />
                             </Animatable.View>
       </View>
-
-
-
-
-
-
-
 
 
         {

@@ -20,6 +20,8 @@ import QuizScreen from "./pages/QuizPage";
 import AboutScreen from "./pages/AboutPage";
 import SupportScreen from "./pages/SupportPage";
 import { DrawerItems, DrawerNavigation, DrawerActions } from "react-navigation";
+import Icon from "react-native-vector-icons/Ionicons";
+import styles from './styles/HomePageStyle' ;
 
 import PlayQuizScreen from "./pages/PlayQuizPage";
 //import SearchScreen from '';
@@ -28,7 +30,10 @@ import PlayQuizScreen from "./pages/PlayQuizPage";
 const DrawerNavigator = createDrawerNavigator(
   {
     Home: {
-      screen: HomeScreen
+      screen: HomeScreen,
+      navigationOptions: {
+           drawerLabel: () => null,
+      }
     },
     Support: { screen: SupportScreen },
     About: { screen: AboutScreen }
@@ -41,11 +46,12 @@ const DrawerNavigator = createDrawerNavigator(
       headerLeft: (
         <View>
           <TouchableHighlight
+          underlayColor='transparent'
             onPress={() => {
               navigation.dispatch(DrawerActions.toggleDrawer());
             }}
           >
-            <Text>Menu</Text>
+            <Icon name={  "ios-menu"}    style={styles.hamburgerStyle}  />
           </TouchableHighlight>
         </View>
       )

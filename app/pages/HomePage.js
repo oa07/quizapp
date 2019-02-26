@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Text, View, Button, TouchableOpacity,ImageBackground,  TouchableHighlight, Image } from 'react-native';
+import { Text, View, Button, TouchableOpacity, ImageBackground,  TouchableHighlight, Image } from 'react-native';
 import Modal from 'react-native-modal';
 import DictionaryComponent from '../components/DictionaryComponent';
 import styles from '../styles/HomePageStyle' ;
@@ -25,6 +25,7 @@ export default class HomeScreen extends Component{
             <ImageBackground source={require('../assets/Images/Background.jpg')} style={commonStyles.backgroundImage}>
 
             <Modal
+                style={{ width: '100%'}}
                 isVisible={this.state.visibleModal === 3}
                 animationInTiming={2000}
                 animationOutTiming={2000}
@@ -66,7 +67,7 @@ export default class HomeScreen extends Component{
             </View>
             </ImageBackground>
 
-      
+
       );
     }
   }

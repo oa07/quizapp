@@ -77,5 +77,18 @@ module.exports =   StyleSheet.create({
         marginStart:10,
         width:'10%',
         alignItems: 'center'
+    },
+    modalHeaderContainer:{
+        flexWrap: 'wrap',
+        alignItems: 'flex-start',
+        flexDirection:'row',
+        backgroundColor:'white',
+        paddingTop:10,
+        paddingBottom:10},
+    hamburgerStyle:{
+     fontSize: 35,
+            color:'black',
+            fontWeight: 'bold',
+            marginStart:10
     }
   });
