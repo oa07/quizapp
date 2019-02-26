@@ -1,46 +1,53 @@
-import React, {Component} from 'react';
-import {StyleSheet, Text, View, Button,ImageBackground, TouchableOpacity } from 'react-native';
+import React, { Component } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableHighlight,
+  Button,
+  ImageBackground,
+  TouchableOpacity
+} from "react-native";
+//import { vocabulary } from "./data.json";
+import styles from "../styles/GrammerStyle";
+import commonStyles from "../styles/CommonStyle";
 
-export default class VocabularyScreen extends Component{
-    render(){
-      return(
-        <View style = {styles.container}>
-            <Text> I am vocabulary</Text>
-        </View>
-  
+let grammerQuizArray = [];
+
+export default class VocabularyScreen extends Component {
+  constructor(props) {
+    super(props);
+    //const VocabularyData = grammer;
+    // fetching quizid of grammer object
+  //  grammerQuizArray = Object.keys(grammerData).map(function(id) {
+  //    return grammerData[id];
+  //  });
+    //
+  }
+  render() {
+    const navigate = this.props.navigation;
+    var myloop = [];
+
+    for (let i = 1; i <= 10; i++) {
+      myloop.push(
+        <TouchableHighlight
+          key={i}
+          underlayColor="#689F38"
+          style={styles.quizButton}
+          onPress={() => navigate.navigate("PlayQuiz")}
+        >
+          <Text style={styles.fullWidthButtonText}>QUIZ {i}</Text>
+        </TouchableHighlight>
       );
     }
+    return (
+      <ImageBackground
+        source={require("../assets/Images/Background.jpg")}
+        style={styles.backgroundImage}
+      >
+        <View style={commonStyles.container}>{myloop}</View>
+      </ImageBackground>
+    );
   }
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#Fc5F',
-    },
-    middlecontainer: {
-      flex: 1.5,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    bottomcontainer:{
-      flex: 2,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    quizButton: {
-      
-      justifyContent: 'space-between',
-      alignContent: 'flex-start',
-      flexDirection: 'column',
-      backgroundColor: '#F5FCFF',
-    },
-    modalContent: {
-      backgroundColor: 'white',
-      padding: 22,
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderRadius: 4,
-      borderColor: 'rgba(0, 0, 0, 0.1)',
-    }
-  });
+}
