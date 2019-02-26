@@ -75,48 +75,44 @@ export default class QuizScreen extends Component {
     const currentOptions = this.state.options;
     const options = Object.keys(currentOptions).map(function(k) {
       return (
-        <View key={k}>
-          <Animbutton
-            style={{ width: "100%", backgroundColor: "blue" }}
-            countCheck={_this.state.countCheck}
-            onColor={"green"}
-            effect={"tada"}
-            _onPress={() => _this._answer(k)}
-            text={currentOptions[k]}
-          />
-        </View>
+
+              <TouchableHighlight
+                  key={k}
+                  underlayColor='#757575'
+                  _onPress={status => _this._answer(status, k)}
+                  style={quizPageStyles.answerButton}
+              >
+                  <Text style={quizPageStyles.fullWidthButtonText}>{currentOptions[k]}</Text>
+              </TouchableHighlight>
+
       );
     });
 
     return (
-      <ImageBackground
-        source={require("../assets/Images/Background.jpg")}
-        style={commonStyles.backgroundImage}
-      >
-        <View style={commonStyles.container}>
-          <View style={quizPageStyles.questionBlock}>
-            <Text style={quizPageStyles.questionText}>
-              {this.state.question}
-            </Text>
-          </View>
-          <View>{options}</View>
-        </View>
+        <ImageBackground source={require('../assets/Images/Background.jpg')} style={commonStyles.backgroundImage}>
 
-        <View style={quizPageStyles.bottomNavigation}>
-          <TouchableHighlight
-            onPress={() => this.prev()}
-            style={quizPageStyles.prevButton}
-          >
-            <Text style={quizPageStyles.buttonTextStyle}>Prev</Text>
-          </TouchableHighlight>
-          <TouchableHighlight
-            onPress={() => this.next()}
-            style={quizPageStyles.nextButton}
-          >
-            <Text style={quizPageStyles.buttonTextStyle}>Next</Text>
-          </TouchableHighlight>
-        </View>
-      </ImageBackground>
+            <View style={commonStyles.container}>
+                <View style={quizPageStyles.questionBlock}>
+                    <Text style={quizPageStyles.questionText}>{this.state.question}</Text>
+                </View>
+                {options}
+            </View>
+
+            <View style={quizPageStyles.bottomNavigation}>
+                <TouchableHighlight
+                 underlayColor='#DCEDC8'
+                 onPress={() => this.prev()} style={quizPageStyles.prevButton}>
+                    <Text style={quizPageStyles.buttonTextStyle}>Prev</Text>
+                </TouchableHighlight>
+                <TouchableHighlight
+                 underlayColor='#689F38'
+                 onPress={() => this.next()} style={quizPageStyles.nextButton}>
+                    <Text style={quizPageStyles.buttonTextStyle}>Next</Text>
+                </TouchableHighlight>
+            </View>
+        </ImageBackground>
+
+
     );
   }
 }

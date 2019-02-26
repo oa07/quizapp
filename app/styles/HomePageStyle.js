@@ -37,10 +37,10 @@ module.exports =   StyleSheet.create({
       alignItems: 'center',
     },
      modalContent: {
-      backgroundColor: '#757575',
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderRadius: 4,
+      flex: 1,
+      width:'100%',
+      backgroundColor: 'transparent',
+      borderRadius: 5,
       borderColor: 'rgba(0, 0, 0, 0.1)',
     },
     dictionaryIcon: {
@@ -48,13 +48,34 @@ module.exports =   StyleSheet.create({
       width: 70,
 
     },
-    modalCrossBtn:{
-     fontSize: 40,
-     color: 'red',
-     position:  'absolute',
-     right:0,
-     marginEnd:5,
-     top:0,
-
+    chatheadAnswerBlock:{
+        marginStart:20,
+        marginEnd:20,
+        marginTop:2,
+        borderRadius: 5,
+        backgroundColor: '#DCEDC8',
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    chatheadSearchBlock:{
+        height: 40,
+        width:'80%',
+        borderRadius: 5,
+        backgroundColor: '#DCEDC8',
+        flexDirection: 'row',
+        padding: 2,
+        marginStart:2,
+        marginRight:10,
+        alignItems: 'center'
+    },
+    modalBackBtn:{
+        fontSize: 35,
+        color:'black',
+        fontWeight: 'bold'
+    },
+    modalBackBtnContainer:{
+        marginStart:10,
+        width:'10%',
+        alignItems: 'center'
     }
   });
