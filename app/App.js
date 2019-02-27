@@ -29,12 +29,7 @@ import PlayQuizScreen from "./pages/PlayQuizPage";
 
 const DrawerNavigator = createDrawerNavigator(
   {
-    Home: {
-      screen: HomeScreen,
-      navigationOptions: {
-           drawerLabel: () => null,
-      }
-    },
+    Home: { screen: HomeScreen, },
     Support: { screen: SupportScreen },
     About: { screen: AboutScreen }
 
