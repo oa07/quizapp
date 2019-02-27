@@ -48,6 +48,7 @@ module.exports =   StyleSheet.create({
         borderRadius: 5,
         backgroundColor: "#FF5722",
         justifyContent: 'center',
+        marginBottom:20,
       },
       buttonTextStyle:{
         fontSize: 25,
