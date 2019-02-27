@@ -51,7 +51,7 @@ const DrawerNavigator = createDrawerNavigator(
               navigation.dispatch(DrawerActions.toggleDrawer());
             }}
           >
-            <Icon name={  "ios-menu"}    style={styles.hamburgerStyle}  />
+            <Icon name={ "ios-menu"}    style={styles.hamburgerStyle}  />
           </TouchableHighlight>
         </View>
       )
