@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   StatusBar,
@@ -8,41 +8,41 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import QuizScreen  from './QuizPage';
+import QuizScreen from './QuizPage';
 
 export default class Playquiz extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
-      quizFinish : false,
+      quizFinish: false,
       score: 0
     }
   }
-  _quizFinish(score){    
-    this.setState({ quizFinish: true, score : score })
+  _quizFinish(score) {
+    this.setState({ quizFinish: true, score: score })
   }
-  _scoreMessage(score){
-      return (<View style={styles.innerContainer} >
-                <View style={{ flexDirection: "row"}} >
-                  <Icon name="trophy" size={30} color="white" />
-                </View>
-                <Text style={styles.score}>Congratulations</Text>
-                <Text style={styles.score}>You scored {score}%</Text>
-              </View>)
-    }
+  _scoreMessage(score) {
+    return (<View style={styles.innerContainer} >
+      <View style={{ flexDirection: "row" }} >
+        <Icon name="trophy" size={30} color="white" />
+      </View>
+      <Text style={styles.score}>Congratulations</Text>
+      <Text style={styles.score}>You scored {score}%</Text>
+    </View>)
+  }
   render() {
     return (
-      <View style={{flex:1}}>
-      <StatusBar barStyle="light-content"/>
- 
-       { this.state.quizFinish ? <View style={styles.container}>
-           <View style={styles.circle}>
- 
-             { this._scoreMessage(this.state.score) }
-           </View>
- 
-       </View> :  <QuizScreen quizFinish={(score) => this._quizFinish(score)}/> }
- 
+      <View style={{ flex: 1 }}>
+        <StatusBar barStyle="light-content" />
+
+        {this.state.quizFinish ? <View style={styles.container}>
+          <View style={styles.circle}>
+
+            {this._scoreMessage(this.state.score)}
+          </View>
+
+        </View> : <QuizScreen quizFinish={(score) => this._quizFinish(score)} />}
+
       </View>
     );
   }
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: scoreCircleSize,
     height: scoreCircleSize,
-    borderRadius: scoreCircleSize/2,
+    borderRadius: scoreCircleSize / 2,
     backgroundColor: "green"
   },
   innerContainer: {
@@ -73,21 +73,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  toolbar:{
-        backgroundColor:'#81c04d',
-        paddingTop:30,
-        paddingBottom:10,
-        flexDirection:'row'
-    },
-    toolbarButton:{
-        width: 55,
-        color:'#fff',
-        textAlign:'center'
-    },
-    toolbarTitle:{
-        color:'#fff',
-        textAlign:'center',
-        fontWeight:'bold',
-        flex:1
-    }
+  toolbar: {
+    backgroundColor: '#81c04d',
+    paddingTop: 30,
+    paddingBottom: 10,
+    flexDirection: 'row'
+  },
+  toolbarButton: {
+    width: 55,
+    color: '#fff',
+    textAlign: 'center'
+  },
+  toolbarTitle: {
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    flex: 1
+  }
 });

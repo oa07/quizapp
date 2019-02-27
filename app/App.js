@@ -21,7 +21,7 @@ import AboutScreen from "./pages/AboutPage";
 import SupportScreen from "./pages/SupportPage";
 import { DrawerItems, DrawerNavigation, DrawerActions } from "react-navigation";
 import Icon from "react-native-vector-icons/Ionicons";
-import styles from './styles/HomePageStyle' ;
+import styles from './styles/HomePageStyle';
 
 import PlayQuizScreen from "./pages/PlayQuizPage";
 //import SearchScreen from '';
@@ -32,8 +32,6 @@ const DrawerNavigator = createDrawerNavigator(
     Home: { screen: HomeScreen, },
     Support: { screen: SupportScreen },
     About: { screen: AboutScreen }
-
-    // PlayQuiz : { screen : PlayQuizScreen},
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -41,12 +39,12 @@ const DrawerNavigator = createDrawerNavigator(
       headerLeft: (
         <View>
           <TouchableHighlight
-          underlayColor='transparent'
+            underlayColor='transparent'
             onPress={() => {
               navigation.dispatch(DrawerActions.toggleDrawer());
             }}
           >
-            <Icon name={ "ios-menu"}    style={styles.hamburgerStyle}  />
+            <Icon name={"ios-menu"} style={styles.hamburgerStyle} />
           </TouchableHighlight>
         </View>
       )
@@ -69,9 +67,17 @@ const RootStack = createStackNavigator(
         headerTitle: "Vocabulary"
       }
     },
-    PlayQuiz: { screen: PlayQuizScreen },
+    PlayQuiz: {
+      screen: PlayQuizScreen,
+      navigationOptions: {
+        headerTitle: "PlayQuiz"
+      }
+    },
     Quiz: {
-      screen: QuizScreen
+      screen: QuizScreen,
+      navigationOptions: {
+        headerTitle: "Quiz"
+      }
     }
   },
   {
