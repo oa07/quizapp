@@ -14,9 +14,7 @@ module.exports =   StyleSheet.create({
         fontSize: 20,
         margin: 15,
         fontWeight: 'bold',
-        color: "white",
-        justifyContent: 'center',
-        alignItems: 'center',
+        color: "white", 
 
       },
       bottomNavigation:{
@@ -47,8 +45,6 @@ module.exports =   StyleSheet.create({
       questionBlock: {
         width: '100%',
         minHeight: '20%',
-        margin: 20,
-        marginEnd: 20,
         borderRadius: 5,
         backgroundColor: "#FF5722",
         justifyContent: 'center',
