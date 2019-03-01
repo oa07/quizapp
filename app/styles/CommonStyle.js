@@ -9,7 +9,6 @@ var {
 module.exports =   StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: "center",
         padding:20,
 
     },
@@ -17,5 +16,25 @@ module.exports =   StyleSheet.create({
         flex: 1,
         resizeMode: 'cover', // or 'stretch'
     },
+    header:{
+        color: 'black',
+        fontSize:20,
+        fontWeight:'bold',
+        textAlign: 'left',
+    },
+    subHeader:{
+        color: 'black',
+        fontSize:16, 
+        textAlign: 'left',
+    },
+    marginTop:{
+        marginTop:10,
+
+    },
+    text: {
+        fontSize: 14,
+        textAlign: 'left',
+        lineHeight: 20,
+      },
 
   });

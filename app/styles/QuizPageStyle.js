@@ -14,9 +14,7 @@ module.exports =   StyleSheet.create({
         fontSize: 20,
         margin: 15,
         fontWeight: 'bold',
-        color: "white",
-        justifyContent: 'center',
-        alignItems: 'center',
+        color: "white", 
 
       },
       bottomNavigation:{
@@ -47,20 +45,30 @@ module.exports =   StyleSheet.create({
       questionBlock: {
         width: '100%',
         minHeight: '20%',
-        margin: 20,
-        marginEnd: 20,
         borderRadius: 5,
         backgroundColor: "#FF5722",
         justifyContent: 'center',
+        marginBottom:20,
       },
       buttonTextStyle:{
         fontSize: 25,
         textAlign: 'center', // <-- the magic
       },
-      answerButton:{
-        fontSize: 25,
-        backgroundColor: "#8BC34A",
-        textAlign: 'center', // <-- the magic
-      },
+         answerButton: {
+            borderRadius: 5,
+            width: "100%",
+            backgroundColor: "#757575",
+            paddingTop: 10,
+            paddingBottom: 10,
+            paddingRight:5,
+            paddingLeft:5,
+            marginTop : 5,
+            alignItems: 'center'
+
+          },
+          fullWidthButtonText: {
+            fontSize:20,
+            color: 'white'
+          },
 
   });

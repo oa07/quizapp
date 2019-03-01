@@ -77,10 +77,8 @@ export default class QuizScreen extends Component {
       return (
         <View key={k}>
           <Animbutton
-            style={{ width: "100%", backgroundColor: "blue" }}
             countCheck={_this.state.countCheck}
             onColor={"green"}
-            effect={"tada"}
             _onPress={() => _this._answer(k)}
             text={currentOptions[k]}
           />
@@ -104,12 +102,14 @@ export default class QuizScreen extends Component {
 
         <View style={quizPageStyles.bottomNavigation}>
           <TouchableHighlight
+            underlayColor="#DCEDC8"
             onPress={() => this.prev()}
             style={quizPageStyles.prevButton}
           >
             <Text style={quizPageStyles.buttonTextStyle}>Prev</Text>
           </TouchableHighlight>
           <TouchableHighlight
+          underlayColor="#689F38"
             onPress={() => this.next()}
             style={quizPageStyles.nextButton}
           >
