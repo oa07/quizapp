@@ -32,6 +32,7 @@ module.exports = StyleSheet.create({
   },
   home_main_buttons_container: {
     flex: 1,
+    flexDirection: 'column',
     marginBottom: 20,
     minHeight:'40%',
     backgroundColor: "white",

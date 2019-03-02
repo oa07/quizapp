@@ -9,8 +9,9 @@ var {
 module.exports =   StyleSheet.create({
     container: {
         flex: 1,
-        padding:20,
-
+        padding:10, 
+        flexDirection: 'column',
+        flexWrap: "wrap",
     },
     backgroundImage: {
         flex: 1,
@@ -36,7 +37,6 @@ module.exports =   StyleSheet.create({
     },
     marginTop:{
         marginTop:10,
-
     },
     text: {
         fontSize: 14,
