@@ -33,7 +33,7 @@ export default class GrammerScreen extends Component {
       myloop.push(
         <TouchableHighlight
           key={i}
-          underlayColor="#689F38"
+          underlayColor="#20B573"
           style={styles.quizButton}
           onPress={() => navigate.navigate("PlayQuiz")}
         >
@@ -42,12 +42,13 @@ export default class GrammerScreen extends Component {
       );
     }
     return (
-      <ImageBackground
-        source={require("../assets/Images/Background.jpg")}
-        style={styles.backgroundImage}
-      >
-        <View style={commonStyles.container}>{myloop}</View>
-      </ImageBackground>
+      <View style={commonStyles.container}>
+        <ImageBackground
+          source={require("../assets/Images/Background.jpg")}
+          style={commonStyles.backgroundImage}
+        />
+        {myloop}
+      </View>
     );
   }
 }

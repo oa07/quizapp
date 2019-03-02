@@ -18,14 +18,16 @@ module.exports =   StyleSheet.create({
       alignItems: 'center',
     },
     quizButton: {
-      borderRadius: 5,
+      flex:1,
+      borderRadius: 8,
       width: "100%", 
-      backgroundColor: "#689F38",
+      backgroundColor: "#20B573",
+      borderWidth: 2,
+      borderColor: "#f8f8f8",
       paddingTop: 10,
       paddingBottom: 10,
       paddingRight:5,
       paddingLeft:5,    
-      marginTop : 5,
       alignItems: 'center'
       
     },  

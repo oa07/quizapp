@@ -78,7 +78,7 @@ export default class QuizScreen extends Component {
         <View key={k}>
           <Animbutton
             countCheck={_this.state.countCheck}
-            onColor={"green"}
+            onColor={"#105851"}
             _onPress={() => _this._answer(k)}
             text={currentOptions[k]}
           />
@@ -87,19 +87,25 @@ export default class QuizScreen extends Component {
     });
 
     return (
-      <ImageBackground
-        source={require("../assets/Images/Background.jpg")}
-        style={commonStyles.backgroundImage}
-      >
-        <View style={commonStyles.container}>
-          <View style={quizPageStyles.questionBlock}>
-            <Text style={quizPageStyles.questionText}>
-              {this.state.question}
-            </Text>
-          </View>
-          <View>{options}</View>
+      <View style={commonStyles.container}>
+        <ImageBackground
+          source={require("../assets/Images/Background.jpg")}
+          style={commonStyles.backgroundImage}
+        />
+        <View style={quizPageStyles.questionBlock}>
+          <Text style={quizPageStyles.questionText}>{this.state.question}</Text>
+        </View>
+        <View>{options}</View>
+
+        <View >
+          <TouchableHighlight
+            underlayColor="#DCEDC8"
+            style={quizPageStyles.submitButton}          >
+            <Text style={quizPageStyles.buttonTextStyle}>Submit</Text>
+          </TouchableHighlight>
         </View>
 
+        {/* bottomNavigation for next and prev button starts from here */}
         <View style={quizPageStyles.bottomNavigation}>
           <TouchableHighlight
             underlayColor="#DCEDC8"
@@ -109,14 +115,14 @@ export default class QuizScreen extends Component {
             <Text style={quizPageStyles.buttonTextStyle}>Prev</Text>
           </TouchableHighlight>
           <TouchableHighlight
-          underlayColor="#689F38"
+            underlayColor="#689F38"
             onPress={() => this.next()}
             style={quizPageStyles.nextButton}
           >
             <Text style={quizPageStyles.buttonTextStyle}>Next</Text>
           </TouchableHighlight>
         </View>
-      </ImageBackground>
+      </View>
     );
   }
 }

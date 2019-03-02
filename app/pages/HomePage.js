@@ -1,13 +1,19 @@
-import React, { Component } from 'react';
-import { Text, View, Button, TouchableOpacity, ImageBackground, TouchableHighlight, Image } from 'react-native';
-import DictionaryComponent from '../components/DictionaryComponent';
-import styles from '../styles/HomePageStyle';
-import commonStyles from '../styles/CommonStyle';
+import React, { Component } from "react";
+import {
+  Text,
+  View,
+  Button,
+  TouchableOpacity,
+  ImageBackground,
+  TouchableHighlight,
+  Image
+} from "react-native";
+import DictionaryComponent from "../components/DictionaryComponent";
+import styles from "../styles/HomePageStyle";
+import commonStyles from "../styles/CommonStyle";
 import Icon from "react-native-vector-icons/Ionicons";
 
 export default class HomeScreen extends Component {
-
-
   _renderButton = (text, onPress) => (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.button}>
@@ -19,17 +25,73 @@ export default class HomeScreen extends Component {
   render() {
     const navigate = this.props.navigation;
     return (
-      <ImageBackground
-        source={require("../assets/Images/Background.jpg")}
-        style={commonStyles.backgroundImage}
-      >
+      <View style={commonStyles.container}>
+        <ImageBackground
+          source={require("../assets/Images/Background.jpg")}
+          style={commonStyles.backgroundImage}
+        />
         <DictionaryComponent
           ref={ref => {
             this.myModal = ref;
           }}
         />
 
-        <View style={styles.middlecontainer}>
+  
+        <View style={styles.home_main_buttons_container}>
+          <View style={{flex:1}} >
+            <Text  style={styles.mainPageBlockTitle}>Grammar Quizzes</Text>
+          </View>
+          <TouchableHighlight
+            underlayColor="#20B573"
+            style={styles.fullWidthButton}
+            onPress={() => navigate.navigate("Grammer")}
+          >
+            <Text style={styles.fullWidthButtonText}>Easy</Text>
+          </TouchableHighlight>
+          <TouchableHighlight
+            underlayColor="#20B573"
+            style={styles.fullWidthButton}
+            onPress={() => navigate.navigate("Grammer")}
+          >
+            <Text style={styles.fullWidthButtonText}>Medium</Text>
+          </TouchableHighlight>
+          <TouchableHighlight
+            underlayColor="#20B573"
+            style={styles.fullWidthButton}
+            onPress={() => navigate.navigate("Grammer")}
+          >
+            <Text style={styles.fullWidthButtonText}>Difficult</Text>
+          </TouchableHighlight>
+        </View>
+        <View style={styles.home_main_buttons_container}>
+          <View style={{flex:1}} >
+            <Text  style={styles.mainPageBlockTitle}>Vocabulary Quizzes</Text>
+          </View>
+          <TouchableHighlight
+            underlayColor="#20B573"
+            style={styles.fullWidthButton}
+            onPress={() => navigate.navigate("Vocabulary")}
+          >
+            <Text style={styles.fullWidthButtonText}>Easy</Text>
+          </TouchableHighlight>
+          <TouchableHighlight
+            underlayColor="#20B573"
+            style={styles.fullWidthButton}
+            onPress={() => navigate.navigate("Vocabulary")}
+          >
+            <Text style={styles.fullWidthButtonText}>Medium</Text>
+          </TouchableHighlight>
+          <TouchableHighlight
+            underlayColor="#20B573"
+            style={styles.fullWidthButton}
+            onPress={() => navigate.navigate("Vocabulary")}
+          >
+            <Text style={styles.fullWidthButtonText}>Difficult</Text>
+          </TouchableHighlight>
+        </View>
+        
+        {/* modal starts from here */}
+        <View style={styles.middlecontainer}> 
           <TouchableHighlight
             underlayColor="transparent"
             onPress={() => this.myModal.toggleModal()}
@@ -40,26 +102,11 @@ export default class HomeScreen extends Component {
             />
           </TouchableHighlight>
         </View>
-        <View style={commonStyles.container}>
-          <View style={styles.home_main_buttons_container}>
-            <TouchableHighlight
-              underlayColor="#689F38"
-              style={styles.fullWidthButton}
-              onPress={() => navigate.navigate("Grammer")}
-            >
-              <Text style={styles.fullWidthButtonText}>Grammer</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              underlayColor="#689F38"
-              style={styles.fullWidthButton}
-              onPress={() => navigate.navigate("Vocabulary")}
-            >
-              <Text style={styles.fullWidthButtonText}>Vocabulary</Text>
-            </TouchableHighlight>
-          </View>
-        </View>
-      </ImageBackground>
+
+      
+      
+      
+      </View> // end of container
     );
   }
 }
-

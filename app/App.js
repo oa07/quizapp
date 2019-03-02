@@ -36,6 +36,9 @@ const DrawerNavigator = createDrawerNavigator(
   {
     navigationOptions: ({ navigation }) => ({
       headerTitle: "QuizApp",
+      headerStyle: {
+        backgroundColor: '#009688',
+      },
       headerLeft: (
         <View>
           <TouchableHighlight
@@ -58,25 +61,37 @@ const RootStack = createStackNavigator(
     Grammer: {
       screen: GrammerScreen,
       navigationOptions: {
-        headerTitle: "Grammer"
+        headerTitle: "Grammer",
+        headerStyle: {
+          backgroundColor: '#009688',
+        },
       }
     },
     Vocabulary: {
       screen: VocabularyScreen,
       navigationOptions: {
-        headerTitle: "Vocabulary"
+        headerTitle: "Vocabulary",
+        headerStyle: {
+          backgroundColor: '#009688',
+        },
       }
     },
     PlayQuiz: {
       screen: PlayQuizScreen,
       navigationOptions: {
-        headerTitle: "PlayQuiz"
+        headerTitle: "PlayQuiz",
+        headerStyle: {
+          backgroundColor: '#009688',
+        },
       }
     },
     Quiz: {
       screen: QuizScreen,
       navigationOptions: {
-        headerTitle: "Quiz"
+        headerTitle: "Quiz",
+        headerStyle: {
+          backgroundColor: '#009688',
+        },
       }
     }
   },

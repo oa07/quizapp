@@ -14,7 +14,14 @@ module.exports =   StyleSheet.create({
     },
     backgroundImage: {
         flex: 1,
+        position:'absolute',
+        top:0,
+        left:0,
+        right:0,
+        bottom:0,
+        zIndex: -1, 
         resizeMode: 'cover', // or 'stretch'
+        opacity:0.5
     },
     header:{
         color: 'black',
@@ -36,5 +43,7 @@ module.exports =   StyleSheet.create({
         textAlign: 'left',
         lineHeight: 20,
       },
+    
+      
 
   });
