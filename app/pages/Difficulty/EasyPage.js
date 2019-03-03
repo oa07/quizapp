@@ -9,13 +9,13 @@ import {
   ImageBackground,
   TouchableOpacity
 } from "react-native";
-import { grammer } from "../assets/data.json";
-import styles from "../styles/GrammerStyle";
-import commonStyles from "../styles/CommonStyle";
+import { grammer } from "../../assets/data.json";
+import styles from "../../styles/GrammerStyle";
+import commonStyles from "../../styles/CommonStyle";
 
 let grammerQuizArray = [];
 
-export default class GrammerScreen extends Component {
+export default class EasyPage extends Component {
   constructor(props) {
     super(props);
     const grammerData = grammer;
@@ -44,7 +44,7 @@ export default class GrammerScreen extends Component {
     return (
       <View style={commonStyles.container}>
         <ImageBackground
-          source={require("../assets/Images/Background.jpg")}
+          source={require("../../assets/Images/Background.jpg")}
           style={commonStyles.backgroundImage}
         />
         {myloop}

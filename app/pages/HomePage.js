@@ -12,6 +12,8 @@ import DictionaryComponent from "../components/DictionaryComponent";
 import styles from "../styles/HomePageStyle";
 import commonStyles from "../styles/CommonStyle";
 import Icon from "react-native-vector-icons/Ionicons";
+import GrammarComponent from "../components/Grammar/GrammarComponent";
+import VocabularyComponent from "../components/Vocabulary/VocabularyComponent";
 
 export default class HomeScreen extends Component {
   _renderButton = (text, onPress) => (
@@ -37,60 +39,10 @@ export default class HomeScreen extends Component {
         />
 
   
-        <View style={styles.home_main_buttons_container}>
-          <View style={{flex:1}} >
-            <Text  style={styles.mainPageBlockTitle}>Grammar Quizzes</Text>
-          </View>
-          <TouchableHighlight
-            underlayColor="#20B573"
-            style={styles.fullWidthButton}
-            onPress={() => navigate.navigate("Grammer")}
-          >
-            <Text style={styles.fullWidthButtonText}>Easy</Text>
-          </TouchableHighlight>
-          <TouchableHighlight
-            underlayColor="#20B573"
-            style={styles.fullWidthButton}
-            onPress={() => navigate.navigate("Grammer")}
-          >
-            <Text style={styles.fullWidthButtonText}>Medium</Text>
-          </TouchableHighlight>
-          <TouchableHighlight
-            underlayColor="#20B573"
-            style={styles.fullWidthButton}
-            onPress={() => navigate.navigate("Grammer")}
-          >
-            <Text style={styles.fullWidthButtonText}>Difficult</Text>
-          </TouchableHighlight>
-        </View>
-        <View style={styles.home_main_buttons_container}>
-          <View style={{flex:1}} >
-            <Text  style={styles.mainPageBlockTitle}>Vocabulary Quizzes</Text>
-          </View>
-          <TouchableHighlight
-            underlayColor="#20B573"
-            style={styles.fullWidthButton}
-            onPress={() => navigate.navigate("Vocabulary")}
-          >
-            <Text style={styles.fullWidthButtonText}>Easy</Text>
-          </TouchableHighlight>
-          <TouchableHighlight
-            underlayColor="#20B573"
-            style={styles.fullWidthButton}
-            onPress={() => navigate.navigate("Vocabulary")}
-          >
-            <Text style={styles.fullWidthButtonText}>Medium</Text>
-          </TouchableHighlight>
-          <TouchableHighlight
-            underlayColor="#20B573"
-            style={styles.fullWidthButton}
-            onPress={() => navigate.navigate("Vocabulary")}
-          >
-            <Text style={styles.fullWidthButtonText}>Difficult</Text>
-          </TouchableHighlight>
-        </View>
+        <GrammarComponent navigation={this.props.navigation}/>
+        <VocabularyComponent navigation={this.props.navigation}/>
         
-        {/* modal starts from here */}
+        {/* modal is viewed after clicking the image below */}
         <View style={styles.middlecontainer}> 
           <TouchableHighlight
             underlayColor="transparent"

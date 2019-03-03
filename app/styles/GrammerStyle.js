@@ -9,7 +9,7 @@ module.exports = StyleSheet.create({
     margin: 5,
     flex: 1,
     borderRadius: 8,
-    width: "80%",
+    width: "70%",
     backgroundColor: "#20B573",
     alignItems: "center",
     alignSelf: "center",

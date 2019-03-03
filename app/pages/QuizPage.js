@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import Animbutton from "./animbutton";
-import { grammer } from "./data.json";
+import { grammer } from "../assets/data.json";
 import commonStyles from "../styles/CommonStyle";
 import quizPageStyles from "../styles/QuizPageStyle";
 
