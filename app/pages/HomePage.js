@@ -8,7 +8,7 @@ import {
   TouchableHighlight,
   Image
 } from "react-native";
-import DictionaryComponent from "../components/DictionaryComponent";
+import ChatHeadComponent from "../components/ChatHeadComponent";
 import styles from "../styles/HomePageStyle";
 import commonStyles from "../styles/CommonStyle";
 import Icon from "react-native-vector-icons/Ionicons";
@@ -30,13 +30,7 @@ export default class HomeScreen extends Component {
           source={require("../assets/Images/Background.jpg")}
           style={commonStyles.backgroundImage}
         />
-        <DictionaryComponent
-          ref={ref => {
-            this.myModal = ref;
-          }}
-        />
 
-  
         <View style={styles.home_main_buttons_container}>
           <View style={{flex:1}} >
             <Text  style={styles.mainPageBlockTitle}>Grammar Quizzes</Text>
@@ -91,16 +85,9 @@ export default class HomeScreen extends Component {
         </View>
         
         {/* modal starts from here */}
+        
         <View style={styles.middlecontainer}> 
-          <TouchableHighlight
-            underlayColor="transparent"
-            onPress={() => this.myModal.toggleModal()}
-          >
-            <Image
-              style={styles.dictionaryIcon}
-              source={require("../assets/Images/ChatHead.png")}
-            />
-          </TouchableHighlight>
+        <ChatHeadComponent/>
         </View>
 
       
