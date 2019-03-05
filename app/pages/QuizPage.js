@@ -31,6 +31,9 @@ export default class QuizScreen extends Component {
       countCheck: 0
     };
   }
+  navigateNextPrev(){
+    
+  }
   prev() {
     if (this.questionNo > 0) {
       this.questionNo--;
@@ -98,7 +101,7 @@ export default class QuizScreen extends Component {
 
         {/* bottomNavigation for next and prev button starts from here */}
 
-        <BottomNavigation  next={this.next} prev={this.prev} />
+        <BottomNavigation  next={this.next.bind(this)}  prev={this.prev.bind(this)} />
       </View>
     );
   }
