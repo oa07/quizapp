@@ -18,14 +18,15 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 // all pages
 import HomeScreen from "./pages/HomePage";
-import GrammerScreen from "./pages/GrammerPage";
+// import GrammerScreen from "./pages/GrammerPage";
 import VocabularyScreen from "./pages/VocabularyPage";
 import QuizScreen from "./pages/QuizPage";
 import AboutScreen from "./pages/AboutPage";
 import SupportScreen from "./pages/SupportPage";
 import PlayQuizScreen from "./pages/PlayQuizPage";
 import EasyScreen from './pages/Difficulty/EasyPage';
-
+import MediumScreen from './pages/Difficulty/MediumPage';
+import DifficultScreen from './pages/Difficulty/DifficultPage';
 // all stylesheet
 import styles from './styles/HomePageStyle';
 
@@ -66,15 +67,15 @@ const DrawerNavigator = createDrawerNavigator(
 const RootStack = createStackNavigator(
   {
     Drawer: { screen: DrawerNavigator },
-    Grammer: {
-      screen: GrammerScreen,
-      navigationOptions: {
-        headerTitle: "Grammer",
-        headerStyle: {
-          backgroundColor: '#009688',
-        },
-      }
-    },
+    // Grammer: {
+    //   screen: GrammerScreen,
+    //   navigationOptions: {
+    //     headerTitle: "Grammer",
+    //     headerStyle: {
+    //       backgroundColor: '#009688',
+    //     },
+    //   }
+    // },
     Vocabulary: {
       screen: VocabularyScreen,
       navigationOptions: {
@@ -106,6 +107,24 @@ const RootStack = createStackNavigator(
       screen: EasyScreen,
       navigationOptions: {
         headerTitle: "Easy",
+        headerStyle: {
+          backgroundColor: '#009688',
+        },
+      }
+    },
+    Medium: {
+      screen: MediumScreen,
+      navigationOptions: {
+        headerTitle: "Medium",
+        headerStyle: {
+          backgroundColor: '#009688',
+        },
+      }
+    },
+    Difficult: {
+      screen: DifficultScreen,
+      navigationOptions: {
+        headerTitle: "Difficult",
         headerStyle: {
           backgroundColor: '#009688',
         },

@@ -8,7 +8,7 @@ export default class MediumButtonComponent extends Component {
         <TouchableHighlight
         underlayColor="#20B573"
         style={styles.fullWidthButton}
-        onPress={() => navigate.navigate("Grammer")}
+        onPress={() => navigate.navigate("Medium")}
       >
         <Text style={styles.fullWidthButtonText}>Medium</Text>
       </TouchableHighlight>

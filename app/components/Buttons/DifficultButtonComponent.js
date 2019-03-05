@@ -8,7 +8,7 @@ export default class DifficultButtonComponent extends Component {
         <TouchableHighlight
           underlayColor="#20B573"
           style={styles.fullWidthButton}
-          onPress={() => navigate.navigate("Grammer")}
+          onPress={() => navigate.navigate("Difficult")}
         >
           <Text style={styles.fullWidthButtonText}>Difficult</Text>
         </TouchableHighlight>

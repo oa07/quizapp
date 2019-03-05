@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import {
   Text,
   View,
-  Button,
   TouchableOpacity,
   ImageBackground,
   TouchableHighlight,
@@ -53,9 +52,7 @@ export default class HomeScreen extends Component {
               source={require("../assets/Images/ChatHead.png")}
             />
           </TouchableHighlight>
-        </View>
-
-      
+        </View>     
       
       
       </View> // end of container

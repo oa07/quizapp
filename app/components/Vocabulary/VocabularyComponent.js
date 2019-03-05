@@ -9,35 +9,20 @@ import {
   Image
 } from "react-native";
 import styles from "../../styles/HomePageStyle";
+import EasyButtonComponent from "../Buttons/EasyButtonComponent";
+import MediumButtonComponent from "../Buttons/MediumButtonComponent";
+import DifficultButtonComponent from "../Buttons/DifficultButtonComponent";
 export default class VocabularyComponent extends Component {
   render() {
-    const navigate = this.props.navigation;
     return (
       <View style={styles.home_main_buttons_container}>
         <View style={{ flex: 1 }}>
-          <Text style={styles.mainPageBlockTitle}>Grammar Quizzes</Text>
+          <Text style={styles.mainPageBlockTitle}>Vocabulary Quizzes</Text>
         </View>
-        <TouchableHighlight
-          underlayColor="#20B573"
-          style={styles.fullWidthButton}
-          onPress={() => navigate.navigate("Grammer")}
-        >
-          <Text style={styles.fullWidthButtonText}>Easy</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          underlayColor="#20B573"
-          style={styles.fullWidthButton}
-          onPress={() => navigate.navigate("Grammer")}
-        >
-          <Text style={styles.fullWidthButtonText}>Medium</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          underlayColor="#20B573"
-          style={styles.fullWidthButton}
-          onPress={() => navigate.navigate("Grammer")}
-        >
-          <Text style={styles.fullWidthButtonText}>Difficult</Text>
-        </TouchableHighlight>
+
+        <EasyButtonComponent  navigation={this.props.navigation} />
+        <MediumButtonComponent navigation={this.props.navigation} />
+        <DifficultButtonComponent  navigation={this.props.navigation} />
       </View>
     );
   }

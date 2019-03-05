@@ -10,12 +10,12 @@ import {
   ScrollView,
   TouchableHighlight
 } from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
 import Animbutton from "./animbutton";
 import { grammer } from "../assets/data.json";
 import commonStyles from "../styles/CommonStyle";
 import quizPageStyles from "../styles/QuizPageStyle";
-
+import SubmitButton from "../components/Buttons/SubmitButton";
+import BottomNavigation from "../components/Buttons/BottomNavigation";
 const { width, height } = Dimensions.get("window");
 let arrnew = [];
 
@@ -97,31 +97,13 @@ export default class QuizScreen extends Component {
         </View>
         <View>{options}</View>
 
-        <View >
-          <TouchableHighlight
-            underlayColor="#DCEDC8"
-            style={quizPageStyles.submitButton}          >
-            <Text style={quizPageStyles.buttonTextStyle}>Submit</Text>
-          </TouchableHighlight>
+        <View>
+          <SubmitButton />
         </View>
 
         {/* bottomNavigation for next and prev button starts from here */}
-        <View style={quizPageStyles.bottomNavigation}>
-          <TouchableHighlight
-            underlayColor="#DCEDC8"
-            onPress={() => this.prev()}
-            style={quizPageStyles.prevButton}
-          >
-            <Text style={quizPageStyles.buttonTextStyle}>Prev</Text>
-          </TouchableHighlight>
-          <TouchableHighlight
-            underlayColor="#689F38"
-            onPress={() => this.next()}
-            style={quizPageStyles.nextButton}
-          >
-            <Text style={quizPageStyles.buttonTextStyle}>Next</Text>
-          </TouchableHighlight>
-        </View>
+
+        <BottomNavigation />
       </View>
     );
   }
