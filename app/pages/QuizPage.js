@@ -1,14 +1,9 @@
 import React, { Component } from "react";
 import {
-  AppRegistry,
-  StyleSheet,
   Text,
   View,
-  Button,
   Dimensions,
   ImageBackground,
-  ScrollView,
-  TouchableHighlight
 } from "react-native";
 import Animbutton from "./animbutton";
 import { grammer } from "../assets/data.json";
@@ -103,7 +98,7 @@ export default class QuizScreen extends Component {
 
         {/* bottomNavigation for next and prev button starts from here */}
 
-        <BottomNavigation />
+        <BottomNavigation  next={this.next} prev={this.prev} />
       </View>
     );
   }

@@ -6,15 +6,15 @@ export default class BottomNavigation extends Component {
     return (
       <View style={quizPageStyles.bottomNavigation}>
         <TouchableHighlight
-          underlayColor="#DCEDC8"
-          onPress={() => this.prev()}
+          underlayColor="#60ECAE"
+          onPress={this.props.prev}
           style={quizPageStyles.prevButton}
         >
           <Text style={quizPageStyles.buttonTextStyle}>Prev</Text>
         </TouchableHighlight>
         <TouchableHighlight
-          underlayColor="#689F38"
-          onPress={() => this.next()}
+          underlayColor="#20B573"
+          onPress={this.props.next}
           style={quizPageStyles.nextButton}
         >
           <Text style={quizPageStyles.buttonTextStyle}>Next</Text>

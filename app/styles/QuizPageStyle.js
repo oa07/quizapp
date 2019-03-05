@@ -19,7 +19,7 @@ module.exports = StyleSheet.create({
   },
   nextButton: { 
     flex:1,
-    backgroundColor: "#689F38",
+    backgroundColor: "#20B573",
     paddingTop: 10,
     paddingBottom: 10,
     paddingLeft: 15,
@@ -27,7 +27,7 @@ module.exports = StyleSheet.create({
   },
   prevButton: { 
     flex:1,
-    backgroundColor: "#DCEDC8",
+    backgroundColor: "#60ECAE",
     paddingTop: 10,
     paddingBottom: 10,
     paddingLeft: 15,
@@ -62,7 +62,7 @@ module.exports = StyleSheet.create({
     color: "white"
   },
   submitButton:{
-    backgroundColor:'#20b573',
+    backgroundColor:'#20B573',
     width:'50%', 
     marginTop:50, 
     alignSelf: 'center',
