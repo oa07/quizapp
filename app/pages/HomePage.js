@@ -14,10 +14,6 @@ import Icon from "react-native-vector-icons/Ionicons";
 import GrammarComponent from "../components/Grammar/GrammarComponent";
 import VocabularyComponent from "../components/Vocabulary/VocabularyComponent";
 
-import {grammer} from "../assets/grammer.json";
-
-let  grammerList =[];
-
 export default class HomeScreen extends Component {
   
   

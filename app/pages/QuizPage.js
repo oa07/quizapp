@@ -16,6 +16,8 @@ export default class QuizScreen extends Component {
     this.questionNo = 0;
     this.score = 0;
     const questionList = this.props.questionObj;
+    
+    // console.log("i am inside quiz page" +JSON.stringify(questionList));
     questionsObj = Object.keys(questionList).map(function(k) {
       return questionList[k];
     });
@@ -62,7 +64,7 @@ export default class QuizScreen extends Component {
     let _this = this;
     const questionObj = this.state.questionsObj;
     //const questions= [];
-    console.log(questionObj.length);
+    // console.log(questionObj.length);
 
     //const optio ns = Object.keys(questionList).map(function(k) {
     //  return (

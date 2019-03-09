@@ -4,6 +4,7 @@ import styles from "../../styles/HomePageStyle";
 import EasyButtonComponent from "../Buttons/EasyButtonComponent";
 import MediumButtonComponent from "../Buttons/MediumButtonComponent";
 import DifficultButtonComponent from "../Buttons/DifficultButtonComponent";
+import {grammer} from "../../assets/grammer.json";
 export default class GrammarComponent extends Component {
   render() {
      
@@ -13,9 +14,9 @@ export default class GrammarComponent extends Component {
           <Text style={styles.mainPageBlockTitle}>Grammar Quizzes</Text>
         </View>
 
-        <EasyButtonComponent  navigation={this.props.navigation} />
-        <MediumButtonComponent navigation={this.props.navigation} />
-        <DifficultButtonComponent  navigation={this.props.navigation} />
+        <EasyButtonComponent  navigation={this.props.navigation} content = {grammer.easy} />
+        <MediumButtonComponent navigation={this.props.navigation }  content = {grammer.medium}/>
+        <DifficultButtonComponent  navigation={this.props.navigation}  content = {grammer.hard}/>
       </View>
     );
   }

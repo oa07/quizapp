@@ -30,7 +30,7 @@ export default class DictionaryComponent extends Component {
 
   }
   toggleModal = () => {
-    console.log("i am here");
+    // console.log("i am here");
     this.setState({visible: !this.state.visible});
   }
 

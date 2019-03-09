@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { 
+import {
   Text,
   View, 
   TouchableHighlight, 
-  ImageBackground, 
+  ImageBackground,
 } from "react-native";
 import styles from "../../styles/GrammerStyle";
 import commonStyles from "../../styles/CommonStyle";
-import {grammer} from "../../assets/grammer.json";
+ 
 
 
 let easyObj = [];
@@ -16,7 +16,7 @@ export default class EasyScreen extends Component {
   constructor(props){
     super(props);
     // Easy Object here
-    const easyData = grammer.easy;
+    const easyData = this.props.navigation.getParam('content', 'null');
     easyObj = Object.keys(easyData).map(function(k){
       return easyData[k];
     });

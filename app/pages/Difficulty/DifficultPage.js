@@ -16,7 +16,7 @@ export default class DifficultPage extends Component {
   constructor(props){
     super(props);
     // Easy Object here
-    const hardData = grammer.easy;
+    const hardData = grammer.hard; 
     hardObj = Object.keys(hardData).map(function(k){
       return hardData[k];
     });
@@ -31,7 +31,7 @@ export default class DifficultPage extends Component {
     const hardObj = this.state.hardObj;
 
     var quizList = [];
-
+  
     for (let i = 1; i <= hardObj.length; i++) {
       let questionObj = hardObj[i];
       quizList.push(

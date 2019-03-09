@@ -36,7 +36,7 @@ export default class Playquiz extends Component {
   render() {
     let _this = this;
     const navigate = this.props.navigation;
-    console.log(_this.state.questionObj);
+    // console.log(_this.state.questionObj);
     return (
 
       <View style={{ flex: 1 }}>
