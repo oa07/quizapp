@@ -6,8 +6,7 @@ import {
   ImageBackground, 
 } from "react-native";
 import styles from "../../styles/GrammerStyle";
-import commonStyles from "../../styles/CommonStyle";
-import {grammer} from "../../assets/grammer.json";
+import commonStyles from "../../styles/CommonStyle"; 
 
 
 let mediumObj = [];
@@ -16,7 +15,7 @@ export default class MediumPage extends Component {
   constructor(props){
     super(props);
     // Easy Object here
-    const mediumData = grammer.easy;
+    const mediumData =   this.props.navigation.getParam('content', null);
     mediumObj = Object.keys(mediumData).map(function(k){
       return mediumData[k];
     });

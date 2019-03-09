@@ -16,7 +16,7 @@ export default class EasyScreen extends Component {
   constructor(props){
     super(props);
     // Easy Object here
-    const easyData = this.props.navigation.getParam('content', 'null');
+    const easyData = this.props.navigation.getParam('content', null);
     easyObj = Object.keys(easyData).map(function(k){
       return easyData[k];
     });

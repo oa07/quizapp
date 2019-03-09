@@ -6,8 +6,7 @@ import {
   ImageBackground, 
 } from "react-native";
 import styles from "../../styles/GrammerStyle";
-import commonStyles from "../../styles/CommonStyle";
-import {grammer} from "../../assets/grammer.json";
+import commonStyles from "../../styles/CommonStyle"; 
 
 
 let hardObj = [];
@@ -15,8 +14,8 @@ export default class DifficultPage extends Component {
   
   constructor(props){
     super(props);
-    // Easy Object here
-    const hardData = grammer.hard; 
+   
+    const hardData =  this.props.navigation.getParam('content', null);
     hardObj = Object.keys(hardData).map(function(k){
       return hardData[k];
     });

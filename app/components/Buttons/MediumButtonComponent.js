@@ -8,7 +8,12 @@ export default class MediumButtonComponent extends Component {
         <TouchableHighlight
         underlayColor="#20B573"
         style={styles.fullWidthButton}
-        onPress={() => navigate.navigate("Medium")}
+        onPress={() => {
+            /* 1. Navigate to the Details route with params */
+            this.props.navigation.navigate('Medium', {
+              content: this.props.content, 
+            });
+          }}  
       >
         <Text style={styles.fullWidthButtonText}>Medium</Text>
       </TouchableHighlight>
