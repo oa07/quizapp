@@ -14,17 +14,24 @@ import Icon from "react-native-vector-icons/Ionicons";
 import GrammarComponent from "../components/Grammar/GrammarComponent";
 import VocabularyComponent from "../components/Vocabulary/VocabularyComponent";
 
+import {grammer} from "../assets/grammer.json";
+
+let  grammerList =[];
+
 export default class HomeScreen extends Component {
+  
+  
   _renderButton = (text, onPress) => (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.button}>
         <Text>{text}</Text>
+        <Text></Text>
       </View>
     </TouchableOpacity>
   );
 
   render() {
-    const navigate = this.props.navigation;
+    const {navigate} = this.props.navigation;
     return (
       <View style={commonStyles.container}>
         <ImageBackground

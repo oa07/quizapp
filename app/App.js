@@ -67,15 +67,6 @@ const DrawerNavigator = createDrawerNavigator(
 const RootStack = createStackNavigator(
   {
     Drawer: { screen: DrawerNavigator },
-    // Grammer: {
-    //   screen: GrammerScreen,
-    //   navigationOptions: {
-    //     headerTitle: "Grammer",
-    //     headerStyle: {
-    //       backgroundColor: '#009688',
-    //     },
-    //   }
-    // },
     Vocabulary: {
       screen: VocabularyScreen,
       navigationOptions: {

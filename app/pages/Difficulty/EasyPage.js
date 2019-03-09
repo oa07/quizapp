@@ -9,33 +9,42 @@ import {
   ImageBackground,
   TouchableOpacity
 } from "react-native";
-import { grammer } from "../../assets/data.json";
 import styles from "../../styles/GrammerStyle";
 import commonStyles from "../../styles/CommonStyle";
+import {grammer} from "../../assets/grammer.json";
 
-let grammerQuizArray = [];
 
-export default class EasyPage extends Component {
-  constructor(props) {
+let easyObj = [];
+export default class EasyScreen extends Component {
+  
+  constructor(props){
     super(props);
-    const grammerData = grammer;
-    // fetching quizid of grammer object
-    grammerQuizArray = Object.keys(grammerData).map(function(id) {
-      return grammerData[id];
+    // Easy Object here
+    const easyData = grammer.easy;
+    easyObj = Object.keys(easyData).map(function(k){
+      return easyData[k];
     });
-    //
+    this.state ={
+      easyObj : easyObj,
+    }
   }
   render() {
+    let _this = this;
     const navigate = this.props.navigation;
-    var myloop = [];
+    // take Object value from state
+    const easyObj = this.state.easyObj;
 
-    for (let i = 1; i <= 10; i++) {
-      myloop.push(
+    var quizList = [];
+
+    for (let i = 1; i <= easyObj.length; i++) {
+      let questionObj = easyObj[i];
+      quizList.push(
         <TouchableHighlight
           key={i}
           underlayColor="#20B573"
           style={styles.quizButton}
-          onPress={() => navigate.navigate("PlayQuiz")}
+          onPress={() => navigate.navigate("PlayQuiz", {questionObj : questionObj})
+        }
         >
           <Text style={styles.fullWidthButtonText}>QUIZ {i}</Text>
         </TouchableHighlight>
@@ -47,7 +56,7 @@ export default class EasyPage extends Component {
           source={require("../../assets/Images/Background.jpg")}
           style={commonStyles.backgroundImage}
         />
-        {myloop}
+        {quizList}
       </View>
     );
   }

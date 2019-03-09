@@ -10,14 +10,17 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import QuizScreen from './QuizPage';
 
+
 export default class Playquiz extends Component {
   constructor(props) {
     super(props)
     this.state = {
       quizFinish: false,
-      score: 0
+      score: 0,
+      questionObj: this.props.navigation.state.params.questionObj,
     }
   }
+
   _quizFinish(score) {
     this.setState({ quizFinish: true, score: score })
   }
@@ -31,7 +34,11 @@ export default class Playquiz extends Component {
     </View>)
   }
   render() {
+    let _this = this;
+    const navigate = this.props.navigation;
+    console.log(_this.state.questionObj);
     return (
+
       <View style={{ flex: 1 }}>
         <StatusBar barStyle="light-content" />
 
@@ -41,7 +48,8 @@ export default class Playquiz extends Component {
             {this._scoreMessage(this.state.score)}
           </View>
 
-        </View> : <QuizScreen quizFinish={(score) => this._quizFinish(score)} />}
+        </View> : <QuizScreen quizFinish={(score) => this._quizFinish(score)} 
+                             questionObj={this.state.questionObj}/>}
 
       </View>
     );

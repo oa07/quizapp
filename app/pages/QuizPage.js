@@ -1,57 +1,47 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  Dimensions,
-  ImageBackground,
-} from "react-native";
+import { Text, View, Dimensions, ImageBackground } from "react-native";
 import Animbutton from "./animbutton";
-import { grammer } from "../assets/data.json";
 import commonStyles from "../styles/CommonStyle";
 import quizPageStyles from "../styles/QuizPageStyle";
 import SubmitButton from "../components/Buttons/SubmitButton";
 import BottomNavigation from "../components/Buttons/BottomNavigation";
-const { width, height } = Dimensions.get("window");
-let arrnew = [];
 
+
+const { width, height } = Dimensions.get("window");
+
+let questionsObj = [];
 export default class QuizScreen extends Component {
   constructor(props) {
     super(props);
     this.questionNo = 0;
     this.score = 0;
-
-    const jsondata = grammer.quiz1;
-    arrnew = Object.keys(jsondata).map(function(k) {
-      return jsondata[k];
+    const questionList = this.props.questionObj;
+    questionsObj = Object.keys(questionList).map(function(k) {
+      return questionList[k];
     });
     this.state = {
-      question: arrnew[this.questionNo].question,
-      options: arrnew[this.questionNo].options,
-      correctoption: arrnew[this.questionNo].correctoption,
-      countCheck: 0
+      questionsObj: questionsObj[this.questionNo].questions,
     };
   }
-  navigateNextPrev(){
-    
-  }
+  navigateNextPrev() {}
   prev() {
     if (this.questionNo > 0) {
       this.questionNo--;
       this.setState({
-        question: arrnew[this.questionNo].question,
-        options: arrnew[this.questionNo].options,
-        correctoption: arrnew[this.questionNo].correctoption
+        questionObj: questionsObj[this.questionNo].question,
+        //options: questionObj[this.questionNo].options,
+        //correctoption: questionObj[this.questionNo].correctoption
       });
     }
   }
   next() {
-    if (this.questionNo < arrnew.length - 1) {
+    if (this.questionNo < questionObj.length - 1) {
       this.questionNo++;
       this.setState({
-        countCheck: 0,
-        question: arrnew[this.questionNo].question,
-        options: arrnew[this.questionNo].options,
-        correctoption: arrnew[this.questionNo].correctoption
+        //countCheck: 0,
+        questionsObj: questionObj[this.questionNo].question,
+        //options: questionObj[this.questionNo].options,
+        //correctoption: questionObj[this.questionNo].correctoption
       });
     } else {
       this.props.quizFinish(this.score);
@@ -70,19 +60,22 @@ export default class QuizScreen extends Component {
   }
   render() {
     let _this = this;
-    const currentOptions = this.state.options;
-    const options = Object.keys(currentOptions).map(function(k) {
-      return (
-        <View key={k}>
-          <Animbutton
-            countCheck={_this.state.countCheck}
-            onColor={"#105851"}
-            _onPress={() => _this._answer(k)}
-            text={currentOptions[k]}
-          />
-        </View>
-      );
-    });
+    const questionObj = this.state.questionsObj;
+    //const questions= [];
+    console.log(questionObj.length);
+
+    //const optio ns = Object.keys(questionList).map(function(k) {
+    //  return (
+    //    <View key={k}>
+    //  <Animbutton
+    //    countCheck={_this.state.countCheck}
+    //    onColor={"#105851"}
+    //    _onPress={() => _this._answer(k)}
+    //    text={questionList[k]}
+    //    />
+    //    </View>
+    //  );
+    //});
 
     return (
       <View style={commonStyles.container}>
@@ -91,17 +84,20 @@ export default class QuizScreen extends Component {
           style={commonStyles.backgroundImage}
         />
         <View style={quizPageStyles.questionBlock}>
-          <Text style={quizPageStyles.questionText}>{this.state.question}</Text>
+        <Text style={quizPageStyles.questionText}>{this.state.questionsObj}</Text>
+        
         </View>
-        <View>{options}</View>
-
+        
         <View>
           <SubmitButton />
         </View>
 
         {/* bottomNavigation for next and prev button starts from here */}
 
-        <BottomNavigation  next={this.next.bind(this)}  prev={this.prev.bind(this)} />
+        <BottomNavigation
+          next={this.next.bind(this)}
+          prev={this.prev.bind(this)}
+        />
       </View>
     );
   }
