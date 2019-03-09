@@ -1,41 +1,46 @@
 import React, { Component } from "react";
-import {
-  StyleSheet,
+import { 
   Text,
-  View,
-  Image,
-  TouchableHighlight,
-  Button,
-  ImageBackground,
-  TouchableOpacity
+  View, 
+  TouchableHighlight, 
+  ImageBackground, 
 } from "react-native";
-import { grammer } from "../../assets/data.json";
 import styles from "../../styles/GrammerStyle";
 import commonStyles from "../../styles/CommonStyle";
+import {grammer} from "../../assets/grammer.json";
 
-let grammerQuizArray = [];
 
+let mediumObj = [];
 export default class MediumPage extends Component {
-  constructor(props) {
+  
+  constructor(props){
     super(props);
-    const grammerData = grammer;
-    // fetching quizid of grammer object
-    grammerQuizArray = Object.keys(grammerData).map(function(id) {
-      return grammerData[id];
+    // Easy Object here
+    const mediumData = grammer.easy;
+    mediumObj = Object.keys(mediumData).map(function(k){
+      return mediumData[k];
     });
-    //
+    this.state ={
+      mediumObj : mediumObj,
+    }
   }
   render() {
+    let _this = this;
     const navigate = this.props.navigation;
-    var myloop = [];
+    // take Object value from state
+    const mediumObj = this.state.mediumObj;
 
-    for (let i = 1; i <= 10; i++) {
-      myloop.push(
+    var quizList = [];
+
+    for (let i = 1; i <= mediumObj.length; i++) {
+      let questionObj = mediumObj[i];
+      quizList.push(
         <TouchableHighlight
           key={i}
           underlayColor="#20B573"
           style={styles.quizButton}
-          onPress={() => navigate.navigate("PlayQuiz")}
+          onPress={() => navigate.navigate("PlayQuiz", {questionObj : questionObj})
+        }
         >
           <Text style={styles.fullWidthButtonText}>QUIZ {i}</Text>
         </TouchableHighlight>
@@ -47,7 +52,7 @@ export default class MediumPage extends Component {
           source={require("../../assets/Images/Background.jpg")}
           style={commonStyles.backgroundImage}
         />
-        {myloop}
+        {quizList}
       </View>
     );
   }

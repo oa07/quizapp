@@ -1,41 +1,46 @@
 import React, { Component } from "react";
-import {
-  StyleSheet,
+import { 
   Text,
-  View,
-  Image,
-  TouchableHighlight,
-  Button,
-  ImageBackground,
-  TouchableOpacity
+  View, 
+  TouchableHighlight, 
+  ImageBackground, 
 } from "react-native";
-import { grammer } from "../../assets/data.json";
 import styles from "../../styles/GrammerStyle";
 import commonStyles from "../../styles/CommonStyle";
+import {grammer} from "../../assets/grammer.json";
 
-let grammerQuizArray = [];
 
+let hardObj = [];
 export default class DifficultPage extends Component {
-  constructor(props) {
+  
+  constructor(props){
     super(props);
-    const grammerData = grammer;
-    // fetching quizid of grammer object
-    grammerQuizArray = Object.keys(grammerData).map(function(id) {
-      return grammerData[id];
+    // Easy Object here
+    const hardData = grammer.easy;
+    hardObj = Object.keys(hardData).map(function(k){
+      return hardData[k];
     });
-    //
+    this.state ={
+      hardObj : hardObj,
+    }
   }
   render() {
+    let _this = this;
     const navigate = this.props.navigation;
-    var myloop = [];
+    // take Object value from state
+    const hardObj = this.state.hardObj;
 
-    for (let i = 1; i <= 10; i++) {
-      myloop.push(
+    var quizList = [];
+
+    for (let i = 1; i <= hardObj.length; i++) {
+      let questionObj = hardObj[i];
+      quizList.push(
         <TouchableHighlight
           key={i}
           underlayColor="#20B573"
           style={styles.quizButton}
-          onPress={() => navigate.navigate("PlayQuiz")}
+          onPress={() => navigate.navigate("PlayQuiz", {questionObj : questionObj})
+        }
         >
           <Text style={styles.fullWidthButtonText}>QUIZ {i}</Text>
         </TouchableHighlight>
@@ -47,7 +52,7 @@ export default class DifficultPage extends Component {
           source={require("../../assets/Images/Background.jpg")}
           style={commonStyles.backgroundImage}
         />
-        {myloop}
+        {quizList}
       </View>
     );
   }

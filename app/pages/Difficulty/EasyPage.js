@@ -1,13 +1,9 @@
 import React, { Component } from "react";
-import {
-  StyleSheet,
+import { 
   Text,
-  View,
-  Image,
-  TouchableHighlight,
-  Button,
-  ImageBackground,
-  TouchableOpacity
+  View, 
+  TouchableHighlight, 
+  ImageBackground, 
 } from "react-native";
 import styles from "../../styles/GrammerStyle";
 import commonStyles from "../../styles/CommonStyle";
