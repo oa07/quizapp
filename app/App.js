@@ -67,15 +67,6 @@ const DrawerNavigator = createDrawerNavigator(
 const RootStack = createStackNavigator(
   {
     Drawer: { screen: DrawerNavigator },
-    Vocabulary: {
-      screen: VocabularyScreen,
-      navigationOptions: {
-        headerTitle: "Vocabulary",
-        headerStyle: {
-          backgroundColor: '#009688',
-        },
-      }
-    },
     PlayQuiz: {
       screen: PlayQuizScreen,
       navigationOptions: {
