@@ -1,17 +1,10 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  Button,
-  TouchableOpacity,
-  ImageBackground,
-  TouchableHighlight,
-  Image
-} from "react-native";
+import { Text, View } from "react-native";
 import styles from "../../styles/HomePageStyle";
 import EasyButtonComponent from "../Buttons/EasyButtonComponent";
 import MediumButtonComponent from "../Buttons/MediumButtonComponent";
 import DifficultButtonComponent from "../Buttons/DifficultButtonComponent";
+import { vocabulary } from "../../assets/grammer.json";
 export default class VocabularyComponent extends Component {
   render() {
     return (
@@ -19,10 +12,18 @@ export default class VocabularyComponent extends Component {
         <View style={{ flex: 1 }}>
           <Text style={styles.mainPageBlockTitle}>Vocabulary Quizzes</Text>
         </View>
-
-        <EasyButtonComponent  navigation={this.props.navigation} />
-        <MediumButtonComponent navigation={this.props.navigation} />
-        <DifficultButtonComponent  navigation={this.props.navigation} />
+        <EasyButtonComponent
+          navigation={this.props.navigation}
+          content={vocabulary.easy}
+        />
+        <MediumButtonComponent
+          navigation={this.props.navigation}
+          content={vocabulary.medium}
+        />
+        <DifficultButtonComponent
+          navigation={this.props.navigation}
+          content={vocabulary.hard}
+        />
       </View>
     );
   }

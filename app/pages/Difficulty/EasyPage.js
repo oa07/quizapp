@@ -39,8 +39,7 @@ export default class EasyScreen extends Component {
           key={i}
           underlayColor="#20B573"
           style={styles.quizButton}
-          onPress={() => navigate.navigate("PlayQuiz", {questionObj : questionObj})
-        }
+          onPress={() => navigate.navigate("PlayQuiz", {questionObj : questionObj}) }
         >
           <Text style={styles.fullWidthButtonText}>QUIZ {i}</Text>
         </TouchableHighlight>
