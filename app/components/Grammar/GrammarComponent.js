@@ -4,7 +4,7 @@ import styles from "../../styles/HomePageStyle";
 import EasyButtonComponent from "../Buttons/EasyButtonComponent";
 import MediumButtonComponent from "../Buttons/MediumButtonComponent";
 import DifficultButtonComponent from "../Buttons/DifficultButtonComponent";
-import { grammer } from "../../assets/grammer.json";
+import { grammer } from "../../assets/database/grammer.json";
 export default class GrammarComponent extends Component {
   render() {
     return (

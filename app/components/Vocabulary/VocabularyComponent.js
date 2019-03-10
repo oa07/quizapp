@@ -4,7 +4,7 @@ import styles from "../../styles/HomePageStyle";
 import EasyButtonComponent from "../Buttons/EasyButtonComponent";
 import MediumButtonComponent from "../Buttons/MediumButtonComponent";
 import DifficultButtonComponent from "../Buttons/DifficultButtonComponent";
-import { vocabulary } from "../../assets/grammer.json";
+import { vocabulary } from "../../assets/database/grammer.json";
 export default class VocabularyComponent extends Component {
   render() {
     return (
