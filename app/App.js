@@ -19,7 +19,6 @@ import Icon from "react-native-vector-icons/Ionicons";
 // all pages
 import HomeScreen from "./pages/HomePage";
 // import GrammerScreen from "./pages/GrammerPage";
-import VocabularyScreen from "./pages/VocabularyPage";
 import QuizScreen from "./pages/QuizPage";
 import AboutScreen from "./pages/AboutPage";
 import SupportScreen from "./pages/SupportPage";
