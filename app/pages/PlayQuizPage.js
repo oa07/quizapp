@@ -49,8 +49,7 @@ export default class Playquiz extends Component {
           </View>
 
         </View> : <QuizScreen quizFinish={(score) => this._quizFinish(score)} 
-                             questionObj={this.state.questionObj}
-                             navigation={navigate}/>}
+                             questionObj={this.state.questionObj}/>}
 
       </View>
     );
