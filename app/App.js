@@ -13,18 +13,27 @@ import {
   createAppContainer,
   createStackNavigator
 } from "react-navigation";
+import { DrawerItems, DrawerNavigation, DrawerActions } from "react-navigation";
+import Icon from "react-native-vector-icons/Ionicons";
+
+// all pages
 import HomeScreen from "./pages/HomePage";
-import GrammerScreen from "./pages/GrammerPage";
+// import GrammerScreen from "./pages/GrammerPage";
 import VocabularyScreen from "./pages/VocabularyPage";
 import QuizScreen from "./pages/QuizPage";
 import AboutScreen from "./pages/AboutPage";
 import SupportScreen from "./pages/SupportPage";
-import { DrawerItems, DrawerNavigation, DrawerActions } from "react-navigation";
-import Icon from "react-native-vector-icons/Ionicons";
+import PlayQuizScreen from "./pages/PlayQuizPage";
+import EasyScreen from './pages/Difficulty/EasyPage';
+import MediumScreen from './pages/Difficulty/MediumPage';
+import DifficultScreen from './pages/Difficulty/DifficultPage';
+// all stylesheet
 import styles from './styles/HomePageStyle';
 
-import PlayQuizScreen from "./pages/PlayQuizPage";
-//import SearchScreen from '';
+//all components
+ 
+
+//
 // import SearchResultScreen from '';
 
 const DrawerNavigator = createDrawerNavigator(
@@ -36,6 +45,9 @@ const DrawerNavigator = createDrawerNavigator(
   {
     navigationOptions: ({ navigation }) => ({
       headerTitle: "QuizApp",
+      headerStyle: {
+        backgroundColor: '#009688',
+      },
       headerLeft: (
         <View>
           <TouchableHighlight
@@ -55,28 +67,58 @@ const DrawerNavigator = createDrawerNavigator(
 const RootStack = createStackNavigator(
   {
     Drawer: { screen: DrawerNavigator },
-    Grammer: {
-      screen: GrammerScreen,
-      navigationOptions: {
-        headerTitle: "Grammer"
-      }
-    },
     Vocabulary: {
       screen: VocabularyScreen,
       navigationOptions: {
-        headerTitle: "Vocabulary"
+        headerTitle: "Vocabulary",
+        headerStyle: {
+          backgroundColor: '#009688',
+        },
       }
     },
     PlayQuiz: {
       screen: PlayQuizScreen,
       navigationOptions: {
-        headerTitle: "PlayQuiz"
+        headerTitle: "PlayQuiz",
+        headerStyle: {
+          backgroundColor: '#009688',
+        },
       }
     },
     Quiz: {
       screen: QuizScreen,
       navigationOptions: {
-        headerTitle: "Quiz"
+        headerTitle: "Quiz",
+        headerStyle: {
+          backgroundColor: '#009688',
+        },
+      }
+    },
+    Easy: {
+      screen: EasyScreen,
+      navigationOptions: {
+        headerTitle: "Easy",
+        headerStyle: {
+          backgroundColor: '#009688',
+        },
+      }
+    },
+    Medium: {
+      screen: MediumScreen,
+      navigationOptions: {
+        headerTitle: "Medium",
+        headerStyle: {
+          backgroundColor: '#009688',
+        },
+      }
+    },
+    Difficult: {
+      screen: DifficultScreen,
+      navigationOptions: {
+        headerTitle: "Difficult",
+        headerStyle: {
+          backgroundColor: '#009688',
+        },
       }
     }
   },

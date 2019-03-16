@@ -9,12 +9,20 @@ var {
 module.exports =   StyleSheet.create({
     container: {
         flex: 1,
-        padding:20,
-
+        padding:10, 
+        flexDirection: 'column',
+        flexWrap: "wrap",
     },
     backgroundImage: {
         flex: 1,
+        position:'absolute',
+        top:0,
+        left:0,
+        right:0,
+        bottom:0,
+        zIndex: -1, 
         resizeMode: 'cover', // or 'stretch'
+        opacity:0.5
     },
     header:{
         color: 'black',
@@ -29,12 +37,13 @@ module.exports =   StyleSheet.create({
     },
     marginTop:{
         marginTop:10,
-
     },
     text: {
         fontSize: 14,
         textAlign: 'left',
         lineHeight: 20,
       },
+    
+      
 
   });

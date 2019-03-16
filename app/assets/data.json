@@ -55,7 +55,7 @@
           },
         "question" : "____ tag syntax is used in React"
       },
-      "question3" : {
+      "question3" : { 
         "correctoption" : "option1",
         "options" : {
             "option1" : "Single root DOM node",

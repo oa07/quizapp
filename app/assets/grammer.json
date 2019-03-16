@@ -1,0 +1,102 @@
+{
+  "grammer": {
+    "easy": {
+      "quiz1": {
+        "question1": {
+          "id": "1",
+          "questions": "___ you speak any foreign languages? ",
+          "options": {
+            "option1": "May",
+            "option2": "Have",
+            "option3": "Can",
+            "option4": "Has"
+          },
+          "correctAnswer": "option3"
+        },
+        "question2": {
+          "id": "2",
+          "questions": "___ is the name of the President of the United States of America?",
+          "options": {
+            "option1": "When",
+            "option2": "What",
+            "option3": "How",
+            "option4": "Which"
+          },
+
+          "correctAnswer": "option2"
+        },
+        "question3": {
+          "id": "3",
+          "questions": "The train leaves ___ five minutes, hurry up.",
+          "options": {
+            "option1": "in",
+            "option2": "at",
+            "option3": "on",
+            "option4": "about"
+          },
+          "correctAnswer": "option1"
+        },
+        "question4": {
+          "id": "4",
+          "questions": "He lived very ___ with his wife for many years.",
+          "options": {
+            "option1": "happy",
+            "option2": "happiness",
+            "option3": "happily",
+            "option4": "none"
+          },
+
+          "correctAnswer": "option3"
+        }
+	  },
+	  "quiz2": {
+        "question1": {
+          "id": "1",
+          "questions": "___ you speak any foreign languages? ",
+          "options": {
+            "option1": "May",
+            "option2": "Have",
+            "option3": "Can",
+            "option4": "Has"
+          },
+          "correctAnswer": "option3"
+        },
+        "question2": {
+          "id": "2",
+          "questions": "___ is the name of the President of the United States of America?",
+          "options": {
+            "option1": "When",
+            "option2": "What",
+            "option3": "How",
+            "option4": "Which"
+          },
+
+          "correctAnswer": "option2"
+        },
+        "question3": {
+          "id": "3",
+          "questions": "The train leaves ___ five minutes, hurry up.",
+          "options": {
+            "option1": "in",
+            "option2": "at",
+            "option3": "on",
+            "option4": "about"
+          },
+          "correctAnswer": "option1"
+        },
+        "question4": {
+          "id": "4",
+          "questions": "He lived very ___ with his wife for many years.",
+          "options": {
+            "option1": "happy",
+            "option2": "happiness",
+            "option3": "happily",
+            "option4": "none"
+          },
+
+          "correctAnswer": "option3"
+        }
+      }
+    }
+  }
+}
