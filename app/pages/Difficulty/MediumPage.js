@@ -9,7 +9,7 @@ import {
   ImageBackground,
   TouchableOpacity
 } from "react-native";
-import { grammer } from "../../assets/data.json";
+import { grammer, vocabulary } from "../../database/data.json";
 import styles from "../../styles/GrammerStyle";
 import commonStyles from "../../styles/CommonStyle";
 
@@ -18,7 +18,7 @@ let grammerQuizArray = [];
 export default class MediumPage extends Component {
   constructor(props) {
     super(props);
-    const grammerData = grammer;
+    const grammerData = grammer.medium;
     // fetching quizid of grammer object
     grammerQuizArray = Object.keys(grammerData).map(function(id) {
       return grammerData[id];

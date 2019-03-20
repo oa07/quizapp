@@ -8,7 +8,7 @@ import {
     constructor(props) {
        super(props);
        this.state ={
-         status: false
+         status: true
        }
      }
      _onPress(){
@@ -52,7 +52,7 @@ import {
       return (
         <TouchableWithoutFeedback onPress={() => this._onPress()} >
           <Animatable.View ref="view" style={{  margin:5, paddingTop :10, paddingBottom: 10, paddingRight: 20, paddingLeft: 20, backgroundColor: this.state.status ? this.props.onColor : "#009698", borderRadius:5}}>
-            <Text style={{color:  "white"  , fontWeight: "bold", fontSize: 15}}>{this.props.text}</Text>
+            <Text style={{color:  "white"  , fontWeight: "bold", fontSize: 15}} >{this.props.text}</Text>
           </Animatable.View>
         </TouchableWithoutFeedback>
       );

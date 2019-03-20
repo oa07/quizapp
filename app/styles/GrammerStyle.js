@@ -8,17 +8,19 @@ module.exports = StyleSheet.create({
    quizButton: {
     margin: 5,
     flex: 1,
-    borderRadius: 8,
-    width: "70%",
+    borderRadius: 1,
     backgroundColor: "#20B573",
     alignItems: "center",
-    alignSelf: "center",
+    alignSelf: "stretch",
     justifyContent: "center",
-    flexDirection: "column"
+    flexDirection: "column",
+    height: 50,
+    
   },
+
   fullWidthButtonText: {
-    fontSize: 16,
-    color: "white"
+    fontSize: 22,
+    color: "white",
   },
   backgroundImage: {
     flex: 1,

@@ -11,6 +11,7 @@ import commonStyles from "../styles/CommonStyle";
 import quizPageStyles from "../styles/QuizPageStyle";
 import SubmitButton from "../components/Buttons/SubmitButton";
 import BottomNavigation from "../components/Buttons/BottomNavigation";
+import { Button } from "react-native-elements";
 
 const { width, height } = Dimensions.get("window");
 
@@ -27,40 +28,41 @@ export default class QuizScreen extends Component {
     });
 
     this.state = {
-      questionsObj: questionsObj[this.questionNo].questions,
+      questionsObj: questionsObj[this.questionNo].question,
       optionsObj: questionsObj[this.questionNo].options,
       correctoption: questionsObj[this.questionNo].correctAnswer,
       optionSelect: "",
       onColor: "#105851",
       countCheck: 0,
-      disabled: false
+      disabled: false,
     };
   }
 
   _answer(ans) {
     if (ans == this.state.correctoption) {
-      console.log("hoicilam to");
       const count = this.state.countCheck + 1;
-      this.setState({ countCheck: count, onColor: "#7CFC00" });
+      this.setState({ countCheck: count, onColor: "#7CFC00", disabled: true });
       this.score += 1;
     } else {
       const count = this.state.countCheck - 1;
-      this.setState({ countCheck: count, onColor: "#FF0000" });
+      this.setState({ countCheck: count, onColor: "red", disabled: true });
       this.score -= 1;
     }
   }
 
   prev() {
-    if(this.questionNo == 0){
-      console.log(this.props);
+    if (this.questionNo == 0) {
+      const navigate= this.props.navigation;
+      navigate.goBack();
     }
     if (this.questionNo > 0) {
       this.questionNo--;
       this.setState({
-        questionsObj: questionsObj[this.questionNo].questions,
-        options: questionsObj[this.questionNo].options,
-        correctoption: questionsObj[this.questionNo].correctoption,
-        
+        questionsObj: questionsObj[this.questionNo].question,
+        optionsObj: questionsObj[this.questionNo].options,
+        correctoption: questionsObj[this.questionNo].correctAnswer,
+        optionSelect: "",
+        onColor: "#105851"
       });
     }
   }
@@ -68,9 +70,8 @@ export default class QuizScreen extends Component {
     if (this.questionNo < questionsObj.length - 1) {
       this.questionNo++;
       this.setState({
-        countCheck: 0,
-        questionsObj: questionsObj[this.questionNo].questions,
-        options: questionsObj[this.questionNo].options,
+        questionsObj: questionsObj[this.questionNo].question,
+        optionsObj: questionsObj[this.questionNo].options,
         correctoption: questionsObj[this.questionNo].correctoption
       });
     } else {
@@ -80,7 +81,7 @@ export default class QuizScreen extends Component {
 
   handleChange(k) {
     this.setState({
-      optionSelect: k
+      optionSelect: k,
     });
   }
 
@@ -89,6 +90,8 @@ export default class QuizScreen extends Component {
     const questionObj = this.state.questionsObj;
     const optionsObj = this.state.optionsObj;
     const optionSelect = this.state.optionSelect;
+    
+
     //const questions= [];
 
     const options = Object.keys(optionsObj).map(function(k) {
@@ -99,7 +102,7 @@ export default class QuizScreen extends Component {
             onColor={_this.state.onColor}
             text={optionsObj[k]}
             _onPress={() => _this.handleChange(k)}
-            disabled={_this.state.disabled}
+            disabled= {true}
           />
         </View>
       );
@@ -130,10 +133,22 @@ export default class QuizScreen extends Component {
 
         {/* bottomNavigation for next and prev button starts from here */}
 
-        <BottomNavigation
-          next={this.next.bind(this)}
-          prev={this.prev.bind(this)}
-        />
+        <View style={quizPageStyles.bottomNavigation}>
+        <TouchableHighlight
+          underlayColor="#60ECAE"
+          onPress={()=>this.prev()}
+          style={quizPageStyles.prevButton}
+        >
+          <Text style={quizPageStyles.buttonTextStyle}>Prev</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          underlayColor="#20B573"
+          onPress={()=>this.next()}
+          style={quizPageStyles.nextButton}
+        >
+          <Text style={quizPageStyles.buttonTextStyle}>Next</Text>
+        </TouchableHighlight>
+      </View>
       </View>
     );
   }

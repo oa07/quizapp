@@ -19,24 +19,36 @@ export default class Playquiz extends Component {
       score: 0,
       questionObj: this.props.navigation.state.params.questionObj,
     }
+    console.log(props);
   }
-
+  
   _quizFinish(score) {
     this.setState({ quizFinish: true, score: score })
   }
   _scoreMessage(score) {
-    return (<View style={styles.innerContainer} >
-      <View style={{ flexDirection: "row" }} >
-        <Icon name="trophy" size={30} color="white" />
-      </View>
-      <Text style={styles.score}>Congratulations</Text>
-      <Text style={styles.score}>You scored {score}%</Text>
-    </View>)
+    if(score>0){
+      return (<View style={styles.innerContainer} >
+        <View style={{ flexDirection: "row" }} >
+          <Icon name="trophy" size={30} color="white" />
+        </View>
+        <Text style={styles.score}>Congratulations</Text>
+        <Text style={styles.score}>You scored {score}%</Text>
+      </View>)
+      }
+    else{
+      return (<View style={styles.innerContainer} >
+        <View style={{ flexDirection: "row" }} >
+          <Icon name="trophy" size={30} color="white" />
+        </View>
+        <Text style={styles.score}>Congratulations</Text>
+        <Text style={styles.score}>You scored 0%</Text>
+      </View>)
+    }
+    
   }
   render() {
     let _this = this;
     const navigate = this.props.navigation;
-    console.log(_this.state.questionObj);
     return (
 
       <View style={{ flex: 1 }}>
@@ -49,7 +61,8 @@ export default class Playquiz extends Component {
           </View>
 
         </View> : <QuizScreen quizFinish={(score) => this._quizFinish(score)} 
-                             questionObj={this.state.questionObj}/>}
+                             questionObj={this.state.questionObj}
+                             navigation={navigate}/>}
 
       </View>
     );
