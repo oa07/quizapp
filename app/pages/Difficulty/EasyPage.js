@@ -30,7 +30,7 @@ export default class EasyScreen extends Component {
     };
   }
 
-  onContentSizeChange = (contentWidth, contentHeight) => {
+  onContentSizeChange = contentHeight => {
     // Save the content height in state
     this.setState({ screenHeight: contentHeight });
   };
@@ -62,12 +62,9 @@ export default class EasyScreen extends Component {
           source={require("../../assets/Images/Background.jpg")}
           style={commonStyles.backgroundImage}
         />
-        <ScrollView
-        >
-        <View>{quizList}</View>
-          
+        <ScrollView>
+          <View>{quizList}</View>
         </ScrollView>
-        
       </View>
     );
   }

@@ -7,37 +7,52 @@ import {
   TouchableHighlight,
   Button,
   ImageBackground,
-  TouchableOpacity
+  TouchableOpacity,
+  ScrollView,
+  Dimensions
 } from "react-native";
-import { grammer, vocabulary } from "../../database/data.json";
 import styles from "../../styles/GrammerStyle";
 import commonStyles from "../../styles/CommonStyle";
-
-let grammerQuizArray = [];
-
-export default class DifficultPage extends Component {
+import { grammer } from "../../database/data.json";
+const { height } = Dimensions.get("window");
+let difficultObj = [];
+export default class difficultScreen extends Component {
   constructor(props) {
     super(props);
-    const grammerData = grammer.difficult;
-    // fetching quizid of grammer object
-    grammerQuizArray = Object.keys(grammerData).map(function(id) {
-      return grammerData[id];
+    // difficult Object here
+    const difficultData = grammer.difficult;
+    difficultObj = Object.keys(difficultData).map(function(k) {
+      return difficultData[k];
     });
-    //
+    this.state = {
+      difficultObj: difficultObj,
+      screenHeight: 0
+    };
   }
-  render() {
-    const navigate = this.props.navigation;
-    var myloop = [];
 
-    for (let i = 1; i <= 10; i++) {
-      myloop.push(
+  onContentSizeChange = contentHeight => {
+    // Save the content height in state
+    this.setState({ screenHeight: contentHeight });
+  };
+  render() {
+    let _this = this;
+    const navigate = this.props.navigation;
+    // take Object value from state
+    const difficultObj = this.state.difficultObj;
+
+    var quizList = [];
+
+    for (let i = 0; i < difficultObj.length; i++) {
+      let questionObj = difficultObj[i];
+      quizList.push(
         <TouchableHighlight
           key={i}
-          underlayColor="#20B573"
           style={styles.quizButton}
-          onPress={() => navigate.navigate("PlayQuiz")}
+          onPress={() =>
+            navigate.navigate("PlayQuiz", { questionObj: questionObj })
+          }
         >
-          <Text style={styles.fullWidthButtonText}>QUIZ {i}</Text>
+          <Text style={styles.fullWidthButtonText}>QUIZ {i + 1}</Text>
         </TouchableHighlight>
       );
     }
@@ -47,7 +62,9 @@ export default class DifficultPage extends Component {
           source={require("../../assets/Images/Background.jpg")}
           style={commonStyles.backgroundImage}
         />
-        {myloop}
+        <ScrollView>
+          <View>{quizList}</View>
+        </ScrollView>
       </View>
     );
   }

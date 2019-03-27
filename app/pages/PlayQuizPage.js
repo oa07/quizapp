@@ -11,6 +11,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import QuizScreen from './QuizPage';
 
 
+
 export default class Playquiz extends Component {
   constructor(props) {
     super(props)
@@ -19,12 +20,17 @@ export default class Playquiz extends Component {
       score: 0,
       questionObj: this.props.navigation.state.params.questionObj,
     }
-    console.log(props);
   }
   
   _quizFinish(score) {
     this.setState({ quizFinish: true, score: score })
-  }
+    //const saveScore = async score =>{
+    //  try {
+    //    await AsyncStorage.setItem('Score', score);
+    //  }catch(error){
+    //    console.log(error.message)
+    //  }
+    }
   _scoreMessage(score) {
     if(score>0){
       return (<View style={styles.innerContainer} >
@@ -42,6 +48,15 @@ export default class Playquiz extends Component {
         </View>
         <Text style={styles.score}>Congratulations</Text>
         <Text style={styles.score}>You scored 0%</Text>
+        <Button
+          title="Check Total Score"
+          onPress={() => {
+            /* 1. Navigate to the Details route with params */
+            this.props.navigation.navigate('Score', {
+              Score: score,
+            });
+          }}
+        />
       </View>)
     }
     
