@@ -7,37 +7,52 @@ import {
   TouchableHighlight,
   Button,
   ImageBackground,
-  TouchableOpacity
+  TouchableOpacity,
+  ScrollView,
+  Dimensions
 } from "react-native";
-import { grammer, vocabulary } from "../../database/data.json";
 import styles from "../../styles/GrammerStyle";
 import commonStyles from "../../styles/CommonStyle";
-
-let grammerQuizArray = [];
-
-export default class MediumPage extends Component {
+import { grammer } from "../../database/data.json";
+const { height } = Dimensions.get("window");
+let mediumObj = [];
+export default class mediumScreen extends Component {
   constructor(props) {
     super(props);
-    const grammerData = grammer.medium;
-    // fetching quizid of grammer object
-    grammerQuizArray = Object.keys(grammerData).map(function(id) {
-      return grammerData[id];
+    // medium Object here
+    const mediumData = grammer.medium;
+    mediumObj = Object.keys(mediumData).map(function(k) {
+      return mediumData[k];
     });
-    //
+    this.state = {
+      mediumObj: mediumObj,
+      screenHeight: 0
+    };
   }
-  render() {
-    const navigate = this.props.navigation;
-    var myloop = [];
 
-    for (let i = 1; i <= 10; i++) {
-      myloop.push(
+  onContentSizeChange = contentHeight => {
+    // Save the content height in state
+    this.setState({ screenHeight: contentHeight });
+  };
+  render() {
+    let _this = this;
+    const navigate = this.props.navigation;
+    // take Object value from state
+    const mediumObj = this.state.mediumObj;
+
+    var quizList = [];
+
+    for (let i = 0; i < mediumObj.length; i++) {
+      let questionObj = mediumObj[i];
+      quizList.push(
         <TouchableHighlight
           key={i}
-          underlayColor="#20B573"
           style={styles.quizButton}
-          onPress={() => navigate.navigate("PlayQuiz")}
+          onPress={() =>
+            navigate.navigate("PlayQuiz", { questionObj: questionObj })
+          }
         >
-          <Text style={styles.fullWidthButtonText}>QUIZ {i}</Text>
+          <Text style={styles.fullWidthButtonText}>QUIZ {i + 1}</Text>
         </TouchableHighlight>
       );
     }
@@ -47,7 +62,9 @@ export default class MediumPage extends Component {
           source={require("../../assets/Images/Background.jpg")}
           style={commonStyles.backgroundImage}
         />
-        {myloop}
+        <ScrollView>
+          <View>{quizList}</View>
+        </ScrollView>
       </View>
     );
   }

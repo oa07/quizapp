@@ -4557,7 +4557,7 @@ prompts@^0.1.9:
     kleur "^2.0.1"
     sisteransi "^0.1.1"
 
-prop-types@^15.5.10, prop-types@^15.6.1, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.5.7, prop-types@^15.6.1, prop-types@^15.7.2, prop-types@latest:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -4671,6 +4671,20 @@ react-native-animatable@^1.2.4, react-native-animatable@^1.3.1:
   dependencies:
     prop-types "^15.5.10"
 
+react-native-check-box@^2.1.7:
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/react-native-check-box/-/react-native-check-box-2.1.7.tgz#f349d3505a13c15d19949ec4cec40c7adc4f3626"
+  integrity sha512-dPVOoz4jKs2je2HSHp7+XJXNyZFq8Kij7IHutigrQKzB550Dko6ZAQu/1mG1FzdUMFxxkZ2nX59KmbR0Co0T8Q==
+  dependencies:
+    prop-types "^15.5.7"
+
+react-native-circle-checkbox@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/react-native-circle-checkbox/-/react-native-circle-checkbox-0.1.6.tgz#53c8f484b830e235c210950516fae77f0b74d85b"
+  integrity sha512-64H+pD6RZyKJVK3QAIqBYbIlD8rFuH9u5qTG8eIMMdjwfuWvSg/a5ysONVnqcFpSb3RdOVfEfuWHvNyU4aSrHA==
+  dependencies:
+    prop-types latest
+
 react-native-elements@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-1.0.0.tgz#95bc194f61ec4658d8dbd977524f8c4fd3ada136"
@@ -4727,6 +4741,11 @@ react-native-search-bar@^3.4.2:
   integrity sha512-hchI0UBeKzNbPchJ4fXhl+o3fu4a9uQEmtRQrtf1lAqtTU3/WEtSHZ9Dz5Ix/ZalZQtiBcqlDVZTfIk3x7DbVw==
   dependencies:
     prop-types "^15.5.10"
+
+react-native-simple-radio-button@^2.7.3:
+  version "2.7.3"
+  resolved "https://registry.yarnpkg.com/react-native-simple-radio-button/-/react-native-simple-radio-button-2.7.3.tgz#c7227c0f963d6bbcfa245255d18a5a8b98fde41f"
+  integrity sha512-kiYRarFj7PXzV9fbQwMBiYwS4YnhrR4NZGT68atlFIoNFxZLrt5OMCDqXZqu6R6bUWKLndzPpO/nhXc6/OU1Mg==
 
 react-native-status-bar-height@^2.2.0:
   version "2.2.0"

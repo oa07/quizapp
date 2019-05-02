@@ -6,14 +6,13 @@ import {
   ImageBackground,
   TouchableHighlight
 } from "react-native";
+import CircleCheckBox, { LABEL_POSITION } from "react-native-circle-checkbox";
 import Animbutton from "./animbutton";
 import commonStyles from "../styles/CommonStyle";
 import quizPageStyles from "../styles/QuizPageStyle";
 import SubmitButton from "../components/Buttons/SubmitButton";
-import BottomNavigation from "../components/Buttons/BottomNavigation";
-import { Button } from "react-native-elements";
 
-const { width, height } = Dimensions.get("window");
+import { Button } from "react-native-elements";
 
 let questionsObj = [];
 export default class QuizScreen extends Component {
@@ -35,6 +34,7 @@ export default class QuizScreen extends Component {
       onColor: "#105851",
       countCheck: 0,
       disabled: false,
+      ischecked: false
     };
   }
 
@@ -52,7 +52,7 @@ export default class QuizScreen extends Component {
 
   prev() {
     if (this.questionNo == 0) {
-      const navigate= this.props.navigation;
+      const navigate = this.props.navigation;
       navigate.goBack();
     }
     if (this.questionNo > 0) {
@@ -80,8 +80,13 @@ export default class QuizScreen extends Component {
   }
 
   handleChange(k) {
+    
+  }
+
+  Check(k) {
     this.setState({
-      optionSelect: k,
+      isChecked: !this.state.isChecked,
+      optionSelect: k
     });
   }
 
@@ -90,20 +95,44 @@ export default class QuizScreen extends Component {
     const questionObj = this.state.questionsObj;
     const optionsObj = this.state.optionsObj;
     const optionSelect = this.state.optionSelect;
-    
+    const correctOption = this.state.correctOption;
 
     //const questions= [];
 
-    const options = Object.keys(optionsObj).map(function(k) {
+    const options = Object.keys(optionsObj).map(function(k, pos) {
       return (
         <View key={k}>
-          <Animbutton
-            countCheck={_this.state.countCheck}
-            onColor={_this.state.onColor}
-            text={optionsObj[k]}
-            _onPress={() => _this.handleChange(k)}
-            disabled= {true}
-          />
+          <View
+            style={{
+              margin: 5,
+              paddingTop: 10,
+              paddingBottom: 10,
+              paddingRight: 20,
+              paddingLeft: 20,
+              backgroundColor: "#20B573",
+              borderRadius: 5
+            }}
+          >
+            <CircleCheckBox
+              key={k}
+              countCheck={_this.state.countCheck}
+              checked={k}
+              label={optionsObj[k]}
+              onToggle={(key) => _this.Check(key)}
+              labelPosition={LABEL_POSITION.RIGHT}
+              onColor={_this.state.onColor}
+              filterColor={"#0000"}
+              //outerColor= {"#FFF"}
+              innerColor={"#FFF"}
+              styleLabel={{
+                color: "white",
+                fontWeight: "bold",
+                fontSize: 25,
+                paddingLeft: 5
+              }}
+              onClick={(key)=> _this.handleChange(key)}
+            />
+          </View>
         </View>
       );
     });
@@ -127,28 +156,28 @@ export default class QuizScreen extends Component {
             style={quizPageStyles.submitButton}
             onPress={() => this._answer(optionSelect)}
           >
-            <Text style={quizPageStyles.buttonTextStyle}>Submit</Text>
+            <Text style={quizPageStyles.buttonTextStyle}>Check</Text>
           </TouchableHighlight>
         </View>
 
         {/* bottomNavigation for next and prev button starts from here */}
 
         <View style={quizPageStyles.bottomNavigation}>
-        <TouchableHighlight
-          underlayColor="#60ECAE"
-          onPress={()=>this.prev()}
-          style={quizPageStyles.prevButton}
-        >
-          <Text style={quizPageStyles.buttonTextStyle}>Prev</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          underlayColor="#20B573"
-          onPress={()=>this.next()}
-          style={quizPageStyles.nextButton}
-        >
-          <Text style={quizPageStyles.buttonTextStyle}>Next</Text>
-        </TouchableHighlight>
-      </View>
+          <TouchableHighlight
+            underlayColor="#60ECAE"
+            onPress={() => this.prev()}
+            style={quizPageStyles.prevButton}
+          >
+            <Text style={quizPageStyles.buttonTextStyle}>Prev</Text>
+          </TouchableHighlight>
+          <TouchableHighlight
+            underlayColor="#20B573"
+            onPress={() => this.next()}
+            style={quizPageStyles.nextButton}
+          >
+            <Text style={quizPageStyles.buttonTextStyle}>Next</Text>
+          </TouchableHighlight>
+        </View>
       </View>
     );
   }

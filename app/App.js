@@ -27,20 +27,21 @@ import PlayQuizScreen from "./pages/PlayQuizPage";
 import EasyScreen from './pages/Difficulty/EasyPage';
 import MediumScreen from './pages/Difficulty/MediumPage';
 import DifficultScreen from './pages/Difficulty/DifficultPage';
+import TotalScoreScreen from './pages/TotalScorePage';
 // all stylesheet
 import styles from './styles/HomePageStyle';
 
 //all components
- 
 
 //
 // import SearchResultScreen from '';
 
 const DrawerNavigator = createDrawerNavigator(
   {
-    Home: { screen: HomeScreen, },
+    Home: { screen: HomeScreen },
     Support: { screen: SupportScreen },
-    About: { screen: AboutScreen }
+    About: { screen: AboutScreen },
+    Score: { screen: TotalScoreScreen},
   },
   {
     navigationOptions: ({ navigation }) => ({
