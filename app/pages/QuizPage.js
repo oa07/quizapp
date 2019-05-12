@@ -7,7 +7,6 @@ import {
   TouchableHighlight
 } from "react-native";
 import CircleCheckBox, { LABEL_POSITION } from "react-native-circle-checkbox";
-import Animbutton from "./animbutton";
 import commonStyles from "../styles/CommonStyle";
 import quizPageStyles from "../styles/QuizPageStyle";
 import SubmitButton from "../components/Buttons/SubmitButton";
@@ -34,7 +33,9 @@ export default class QuizScreen extends Component {
       onColor: "#105851",
       countCheck: 0,
       disabled: false,
-      ischecked: false
+      ischecked: false,
+      checked: [],
+      selectedCheckbox: {}
     };
   }
 
@@ -79,15 +80,34 @@ export default class QuizScreen extends Component {
     }
   }
 
-  handleChange(k) {
-    
-  }
-
   Check(k) {
     this.setState({
       isChecked: !this.state.isChecked,
       optionSelect: k
     });
+  }
+
+  isItemChecked(k){
+    console.log("hoice")
+    return this.state.checked.indexOf(k) > -1
+  }
+
+  toggleChange = (option)=>{
+    if (this.isItemChecked(option)){
+      this.setState({
+        checked: this.state.checked.filter(i=>i!= k)
+      })
+    }
+    else{
+      this.setState({
+        checked: [...this.state.checked, option]
+      })
+    }
+  }
+
+  CheckMe = (selectedCheckbox) =>{
+    this.setState({ selectedCheckbox});
+
   }
 
   render() {
@@ -96,12 +116,14 @@ export default class QuizScreen extends Component {
     const optionsObj = this.state.optionsObj;
     const optionSelect = this.state.optionSelect;
     const correctOption = this.state.correctOption;
+    const { checkboxValue, selectedCheckbox} = this.state;
 
     //const questions= [];
 
-    const options = Object.keys(optionsObj).map(function(k, pos) {
+    const options = Object.keys(optionsObj).map(function(option, indexInArray) {
+      //console.log(pos)
       return (
-        <View key={k}>
+        <View key={option}>
           <View
             style={{
               margin: 5,
@@ -114,23 +136,22 @@ export default class QuizScreen extends Component {
             }}
           >
             <CircleCheckBox
-              key={k}
-              countCheck={_this.state.countCheck}
-              checked={k}
-              label={optionsObj[k]}
-              onToggle={(key) => _this.Check(key)}
+              key={option}
+              checked={option === selectedCheckbox}
+              label={optionsObj[option]}
+              onToggle={(value, index) => _this.CheckMe(option)}
               labelPosition={LABEL_POSITION.RIGHT}
               onColor={_this.state.onColor}
               filterColor={"#0000"}
-              //outerColor= {"#FFF"}
-              innerColor={"#FFF"}
+              outerColor= {"#FFF"}
+              innerColor={"#60ECAE"}
               styleLabel={{
                 color: "white",
                 fontWeight: "bold",
                 fontSize: 25,
                 paddingLeft: 5
               }}
-              onClick={(key)=> _this.handleChange(key)}
+              //onPress={ k => _this.toggleChange(k)}
             />
           </View>
         </View>

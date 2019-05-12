@@ -20,7 +20,7 @@ export default class difficultScreen extends Component {
   constructor(props) {
     super(props);
     // difficult Object here
-    const difficultData = grammer.difficult;
+    const difficultData = grammer.hard;
     difficultObj = Object.keys(difficultData).map(function(k) {
       return difficultData[k];
     });

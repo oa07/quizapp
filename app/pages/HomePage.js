@@ -38,18 +38,18 @@ export default class HomeScreen extends Component {
           source={require("../assets/Images/Background.jpg")}
           style={commonStyles.backgroundImage}
         />
-        <DictionaryComponent
+        {/* <DictionaryComponent
           ref={ref => {
             this.myModal = ref;
           }}
-        />
+        /> */}
 
   
         <GrammarComponent navigation={this.props.navigation}/>
         <VocabularyComponent navigation={this.props.navigation}/>
         
         {/* modal is viewed after clicking the image below */}
-        <View style={styles.middlecontainer}> 
+        {/* <View style={styles.middlecontainer}> 
           <TouchableHighlight
             underlayColor="transparent"
             onPress={() => this.myModal.toggleModal()}
@@ -60,7 +60,7 @@ export default class HomeScreen extends Component {
             />
           </TouchableHighlight>
         </View>     
-      
+       */}
       
       </View> // end of container
     );

@@ -48,15 +48,7 @@ export default class Playquiz extends Component {
         </View>
         <Text style={styles.score}>Congratulations</Text>
         <Text style={styles.score}>You scored 0%</Text>
-        <Button
-          title="Check Total Score"
-          onPress={() => {
-            /* 1. Navigate to the Details route with params */
-            this.props.navigation.navigate('Score', {
-              Score: score,
-            });
-          }}
-        />
+       
       </View>)
     }
     
