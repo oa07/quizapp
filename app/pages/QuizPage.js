@@ -9,9 +9,7 @@ import {
 import CircleCheckBox, { LABEL_POSITION } from "react-native-circle-checkbox";
 import commonStyles from "../styles/CommonStyle";
 import quizPageStyles from "../styles/QuizPageStyle";
-import SubmitButton from "../components/Buttons/SubmitButton";
 
-import { Button } from "react-native-elements";
 
 let questionsObj = [];
 export default class QuizScreen extends Component {
@@ -21,7 +19,7 @@ export default class QuizScreen extends Component {
     this.score = 0;
 
     const questionList = this.props.questionObj;
-    questionsObj = Object.keys(questionList).map(function(k) {
+    questionsObj = Object.keys(questionList).map(function (k) {
       return questionList[k];
     });
 
@@ -29,12 +27,7 @@ export default class QuizScreen extends Component {
       questionsObj: questionsObj[this.questionNo].question,
       optionsObj: questionsObj[this.questionNo].options,
       correctoption: questionsObj[this.questionNo].correctAnswer,
-      optionSelect: "",
       onColor: "#105851",
-      countCheck: 0,
-      disabled: false,
-      ischecked: false,
-      checked: [],
       selectedCheckbox: {}
     };
   }
@@ -62,7 +55,6 @@ export default class QuizScreen extends Component {
         questionsObj: questionsObj[this.questionNo].question,
         optionsObj: questionsObj[this.questionNo].options,
         correctoption: questionsObj[this.questionNo].correctAnswer,
-        optionSelect: "",
         onColor: "#105851"
       });
     }
@@ -73,40 +65,17 @@ export default class QuizScreen extends Component {
       this.setState({
         questionsObj: questionsObj[this.questionNo].question,
         optionsObj: questionsObj[this.questionNo].options,
-        correctoption: questionsObj[this.questionNo].correctoption
+        correctoption: questionsObj[this.questionNo].correctoption,
+        selectedCheckbox: false
       });
     } else {
       this.props.quizFinish(this.score);
     }
   }
 
-  Check(k) {
-    this.setState({
-      isChecked: !this.state.isChecked,
-      optionSelect: k
-    });
-  }
 
-  isItemChecked(k){
-    console.log("hoice")
-    return this.state.checked.indexOf(k) > -1
-  }
-
-  toggleChange = (option)=>{
-    if (this.isItemChecked(option)){
-      this.setState({
-        checked: this.state.checked.filter(i=>i!= k)
-      })
-    }
-    else{
-      this.setState({
-        checked: [...this.state.checked, option]
-      })
-    }
-  }
-
-  CheckMe = (selectedCheckbox) =>{
-    this.setState({ selectedCheckbox});
+  CheckMe = (selectedCheckbox) => {
+    this.setState({ selectedCheckbox });
 
   }
 
@@ -116,11 +85,12 @@ export default class QuizScreen extends Component {
     const optionsObj = this.state.optionsObj;
     const optionSelect = this.state.optionSelect;
     const correctOption = this.state.correctOption;
-    const { checkboxValue, selectedCheckbox} = this.state;
+    const { checkboxValue, selectedCheckbox } = this.state;
+    console.log(selectedCheckbox);
 
     //const questions= [];
 
-    const options = Object.keys(optionsObj).map(function(option, indexInArray) {
+    const options = Object.keys(optionsObj).map(function (option, indexInArray) {
       //console.log(pos)
       return (
         <View key={option}>
@@ -137,13 +107,13 @@ export default class QuizScreen extends Component {
           >
             <CircleCheckBox
               key={option}
-              checked={option === selectedCheckbox}
+              checked={option === selectedCheckbox} // checking current element
               label={optionsObj[option]}
-              onToggle={(value, index) => _this.CheckMe(option)}
+              onToggle={(value, index) => _this.CheckMe(option)} // passing index of toggled element
               labelPosition={LABEL_POSITION.RIGHT}
               onColor={_this.state.onColor}
               filterColor={"#0000"}
-              outerColor= {"#FFF"}
+              outerColor={"#FFF"}
               innerColor={"#60ECAE"}
               styleLabel={{
                 color: "white",
@@ -151,7 +121,7 @@ export default class QuizScreen extends Component {
                 fontSize: 25,
                 paddingLeft: 5
               }}
-              //onPress={ k => _this.toggleChange(k)}
+            //onPress={ k => _this.toggleChange(k)}
             />
           </View>
         </View>
